@@ -1,5 +1,5 @@
 java:
-  image: shadovokun/obarbecue
+  image: tclavier/jersey-skeleton
   ports:
   - ip: 51.255.131.197
     container_port: 8080
