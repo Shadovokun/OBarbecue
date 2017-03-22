@@ -10,7 +10,6 @@ a{
 	text-decoration:none;
 }
 
-
 header .titre{
 	width:500px;
 }
@@ -34,6 +33,7 @@ nav a:hover{
 }
 
 
+
 footer{      
     background-color:#803315;;
 	position:fixed;
@@ -45,4 +45,12 @@ footer{
 
 h1{
     color: rgb(0,49,194);
+}
+
+
+h3{
+	color: #803315;
+	font-size:18px;
+	font-weight: bold;
+	margin:0px;
 }
