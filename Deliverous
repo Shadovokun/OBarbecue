@@ -1,6 +1,6 @@
 java:
   image: Shadovokun/OBarbecue
   ports:
-  - ip: 193.49.225.9
+  - ip: 51.255.131.197
     container_port: 8080
     host_port: 80
