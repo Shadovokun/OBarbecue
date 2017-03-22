@@ -1,0 +1,42 @@
+<! DOCTYPE html>
+<html lang="fr">
+    <HEAD>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <TITLE>O'Barbecue</TITLE>
+    </HEAD>
+    <BODY>        
+        <header>
+            <h1>Ajout Menu</h1>
+
+            <style>
+
+            label
+            {
+                display: inline-block;
+                width: 140px;
+                padding: 5px;
+            }
+
+
+            </style>    
+        </header>    
+        <form action="???" method="post">
+            <fieldset class="Inscription">
+                <legend>Ajout Menu</legend>
+                <label for="nom">Nom : </label>
+                <input id="nom" name="nom" type="text" /><br />
+                <label for="Description">Description : </label>
+                <input id="description" name="description" type="text" /><br />          
+                <label for="prix">prix : </label>
+                <input id="prix" name="prix" type="text" /><br />
+                <label for="img">Image : </label>
+                <input type="file" onmousedown="return false" onkeydown="return false" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
+
+                <input type="submit" value="Valider"/> 
+                <input type="reset" value="Annuler"/>
+            </fieldset>
+        </form>  
+    </BODY>
+</html>

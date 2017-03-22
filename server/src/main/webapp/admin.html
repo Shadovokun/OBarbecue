@@ -7,6 +7,14 @@
         
         <TITLE>O'Barbecue</TITLE>
 
+<SCRIPT LANGUAGE="JavaScript">
+function PopupCentrer(page,largeur,hauteur,options) {
+  var top=(screen.height-hauteur)/2;
+  var left=(screen.width-largeur)/2;
+  window.open(page,"","top="+top+",left="+left+",width="+largeur+",height="+hauteur+","+options);
+}
+</SCRIPT>
+
         <style>
    
 
@@ -120,6 +128,7 @@ label
 
 <div class="bas">
     <input type="submit" value="Valider"/>
+    <input type='button' value='Ajouter Menu' onClick='PopupCentrer("add.html",600,300,"menubar=no,scrollbars=no,statusbar=no")'>
     <input type="submit" value="Modifier"/> 
     <input type="reset" value="Annuler"/>
 </div>
