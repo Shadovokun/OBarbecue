@@ -1,12 +1,14 @@
 body{
 	text-align:center;
 	width:800px;
+	margin-bottom:0px;
 	border:2px solid black;
 	margin:auto;
 }
 
 a{
 	text-decoration:none;
+	color:black;
 }
 
 header .titre{
@@ -37,9 +39,10 @@ footer{
     background-color:#803315;;
 	position:fixed;
 	bottom:0px;
-	width:800px;
+	width:792px;
 	color:white;
-	text-align:center;
+	text-align:right;
+	padding:5px;
 }
 
 h1{
