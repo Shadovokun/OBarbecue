@@ -45,5 +45,5 @@
             <version>${logback-classic.version}</version>
         </dependency>
     </dependencies>
-    <name>OBarbecue</name>
+    <name>shadovokun/obarbecue</name>
 </project>
