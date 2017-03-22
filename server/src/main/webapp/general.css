@@ -33,7 +33,23 @@ nav a:hover{
 	background-color:#FFC2AA;	
 }
 
+aside{
+	height:30px;
+	width:130px;
+	background-color:#D4886A;	
+	border-radius:0px 50px 50px 0px;
+	font-size:22px;
+	position:absolute;
+	margin-left:800px;
+	margin-top:0px;
+	padding:3px;
+	transition:all 1s ease;
+}
 
+aside:hover{
+	width:160px;
+	transition:all 1s ease;
+}
 
 footer{      
     background-color:#803315;;
@@ -56,3 +72,9 @@ h3{
 	font-weight: bold;
 	margin:0px;
 }
+
+  label{
+ 	display: inline-block;
+	width: 140px;
+  	padding: 5px;
+ }
