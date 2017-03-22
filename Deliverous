@@ -1,6 +1,6 @@
 java:
-  image: tclavier/jersey-skeleton
+  image: Shadovokun/OBarbecue
   ports:
-  - ip: A.X.Y.Z
+  - ip: 193.49.225.9
     container_port: 8080
     host_port: 80
