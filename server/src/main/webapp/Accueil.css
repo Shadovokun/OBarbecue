@@ -31,15 +31,23 @@ h1{
 
 ul{
     list-style-type: none;
+    float: left;
 }
 
 .jourSemaine{
     font-weight: bold;
 }
 
+#coord{
+    margin-left: 28%;
+    margin-top: 80px;
+    line-height: 35px;
+}
+
+
 #contact{
-    margin:  190 0 0 0;
-    color: red;
+    margin:  190 0 0 50;
+    color: black;
     text-align: left;        
     
 }
@@ -68,6 +76,7 @@ ul{
     line-height: 35px;
     
 }
+
 
 /* avanced box-shadow
  * tutorial @
