@@ -1,0 +1,48 @@
+body{
+	text-align:center;
+	width:800px;
+	border:2px solid black;
+	height:100%;
+	margin:auto;
+}
+
+a{
+	text-decoration:none;
+}
+
+
+header .titre{
+	width:500px;
+}
+
+nav a{
+    padding-right: 20px; 
+    padding-left:20px;   
+    color: black; 
+}
+
+nav{
+    background-color: #D4886A;
+    text-align: center;
+    font-size: 30px;
+    font-variant:small-caps;
+    border-top:4px solid #803315;
+}
+
+nav a:hover{
+	background-color:#FFC2AA;	
+}
+
+
+footer{      
+    background-color:#803315;;
+	position:fixed;
+	bottom:0px;
+	width:800px;
+	color:white;
+	text-align:center;
+}
+
+h1{
+    color: rgb(0,49,194);
+}
