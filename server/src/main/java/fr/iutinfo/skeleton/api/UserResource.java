@@ -27,7 +27,7 @@ import fr.iutinfo.skeleton.common.dto.UserDto;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UserResource {
-    final static Logger logger = LoggerFactory.getLogger(UserResource_prof.class);
+    final static Logger logger = LoggerFactory.getLogger(UserResource.class);
     private static UserDao dao = getDbi().open(UserDao.class);
 
     public UserResource() throws SQLException {
