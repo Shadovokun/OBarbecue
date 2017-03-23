@@ -2,8 +2,8 @@ package fr.iutinfo.skeleton.common.remote;
 
 import fr.iutinfo.skeleton.api.Api;
 import fr.iutinfo.skeleton.api.BDDFactory;
-import fr.iutinfo.skeleton.api.User;
-import fr.iutinfo.skeleton.api.UserDao;
+import fr.iutinfo.skeleton.api.User_prof;
+import fr.iutinfo.skeleton.api.UserDao_prof;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Assert;
@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 
 public class UsersProviderIntegrationTest extends JerseyTest {
 
-    private UserDao userDao = BDDFactory.getDbi().open(UserDao.class);
+    private UserDao_prof userDao = BDDFactory.getDbi().open(UserDao_prof.class);
     private UsersProvider usersProvider = new UsersProvider(getBaseUri().toString());
 
     @Override
@@ -50,14 +50,14 @@ public class UsersProviderIntegrationTest extends JerseyTest {
         olivier.setName("Olivier");
 
         UserDto remoteUser = usersProvider.addUser(olivier);
-        User bddUser = userDao.findById(remoteUser.getId());
+        User_prof bddUser = userDao.findById(remoteUser.getId());
 
         Assert.assertEquals("Olivier", bddUser.getName());
     }
 
 
     private void createUser(String name) {
-        User thomas = new User();
+        User_prof thomas = new User_prof();
         thomas.setName(name);
         userDao.insert(thomas);
     }

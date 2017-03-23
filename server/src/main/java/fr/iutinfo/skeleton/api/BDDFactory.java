@@ -1,14 +1,15 @@
 package fr.iutinfo.skeleton.api;
 
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.inject.Singleton;
+
 import org.skife.jdbi.v2.DBI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sqlite.SQLiteDataSource;
-
-import javax.inject.Singleton;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @Singleton
 public class BDDFactory {
@@ -18,7 +19,7 @@ public class BDDFactory {
     public static DBI getDbi() {
         if(dbi == null) {
             SQLiteDataSource ds = new SQLiteDataSource();
-            ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") + "data.db");
+            ds.setUrl("jdbc:sqlite:" + System.getProperty("java.io.tmpdir") + System.getProperty("file.separator") + "data2.db");
             dbi = new DBI(ds);
             logger.debug("user.dir : " + System.getProperty("user.dir"));
             logger.debug("java.io.tmpdir : " + System.getProperty("java.io.tmpdir"));
