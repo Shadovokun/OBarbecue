@@ -10,8 +10,8 @@ public class User {
 	private String role;
 	private String mdp;
 	private String adresse;
-	private String num_telephone;
-	private int nbr_cmd;
+	private String numTelephone;
+	private int nbrCmd;
 	
 	
 	public User(String nom, String prenom , String mail, String role){
@@ -21,12 +21,12 @@ public class User {
 		this.role = role;
 	}
 	
-	public User(String nom, String prenom , String mail, String role, String mdp, String adresse, String num_telephone, int nbr){
+	public User(String nom, String prenom , String mail, String role, String mdp, String adresse, String numTelephone, int nbr){
 		this(nom,prenom,mail,role);
 		this.mdp = mdp;
 		this.adresse = adresse;
-		this.num_telephone = num_telephone;
-		this.nbr_cmd = nbr;
+		this.numTelephone = numTelephone;
+		this.nbrCmd = nbr;
 	}
 
 	public User(){}
