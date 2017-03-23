@@ -1,13 +1,13 @@
 package fr.iutinfo.skeleton.api;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import javax.annotation.security.RolesAllowed;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 @Path("/secure")
@@ -16,15 +16,15 @@ public class SecureResource {
 
     @GET
     @Path("/who")
-    public User secureWhoAmI(@Context SecurityContext context) {
-        return (User) context.getUserPrincipal();
+    public User_prof secureWhoAmI(@Context SecurityContext context) {
+        return (User_prof) context.getUserPrincipal();
     }
 
     @GET
     @Path("/byannotation")
     @RolesAllowed({"user"})
-    public User secureByAnnotation(@Context SecurityContext context) {
-        return (User) context.getUserPrincipal();
+    public User_prof secureByAnnotation(@Context SecurityContext context) {
+        return (User_prof) context.getUserPrincipal();
     }
 
 }
