@@ -13,3 +13,4 @@ data.db
 
 # maven shade plugin
 dependency-reduced-pom.xml
+/bin/

@@ -11,14 +11,14 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommandeDao {
 	
-    @SqlUpdate("Create table commande(id serial  primary key, dat date ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail),constraint fk_produit foreign key(nom) references produit(nom)")
+    @SqlUpdate("Create table commande(id Integer primary key, dat varchar(100) ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail),constraint fk_produit foreign key(nom) references produit(nom))")
     void createCommandeTable();
     
     @SqlUpdate("Drop table if exists commande")
     void dropCommandeTable();
     
-    @SqlUpdate("insert into commande(dat,mail_user,nom_,prix) values (:dat, :mail, :nom_produit, :prix)")
-    void insertCommande(@Bind("dat") Date dat , @Bind("mail") String mail_user,@Bind("nom") String nom_produit,@Bind("prix") double prix);
+    @SqlUpdate("insert into commande(id,dat,mail,nom,prix) values (:id, :dat, :mail, :nom, :prix)")
+    void insertCommande(@Bind("id") Integer id,@Bind("dat") String dat , @Bind("mail") String mail,@Bind("nom") String nom,@Bind("prix") double prix);
 
     @SqlUpdate("Delete from commande where id= :id")
     void deleteCommande(@Bind("idl") int id);

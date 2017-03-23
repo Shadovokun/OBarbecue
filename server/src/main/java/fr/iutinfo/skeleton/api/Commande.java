@@ -5,20 +5,12 @@ import java.sql.Date;
 public class Commande {
 	
 	private int id;
-	private Date date;
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
+	private String date;
 	private String mail_user;
 	private String nom_produit;
 	private double prix;
 	
-	public Commande(int id, Date date ,String mail_user,String nom_produit, double prix){
+	public Commande(int id, String date ,String mail_user,String nom, double prix){
 		this.id = id;
 		this.date = date;
 		this.mail_user = mail_user;
@@ -27,6 +19,14 @@ public class Commande {
 	}
 	
 	public Commande(){}
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	public int getId() {
 		return id;
@@ -60,5 +60,8 @@ public class Commande {
 		this.prix = prix;
 	}
 
+	public String toString(){
+		return "id : "+id+" / mail user : "+mail_user+" / produit : "+nom_produit +" / date : "+date +" / prix :"+prix ;
+	}
 	
 }
