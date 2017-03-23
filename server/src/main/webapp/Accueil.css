@@ -8,17 +8,15 @@ ul{
 }
 
 #coord{
-    padding-top: 35px;
     padding-left: 150px;
-    margin-left: 28%;
-    margin-top: 80px;
+    margin-left: 30%;
     line-height: 35px;
 }
 
 
 #contact{
     height: 200px;
-    margin:  0 0 0 50;
+    margin:  180 0 0 50;
     color: black;
     text-align: left;        
     
@@ -30,7 +28,7 @@ ul{
 	width: 450px;
 	height: 310px;
 	padding: 15px;
-	margin: 60 40 40 20;
+	margin: 0 40 40 20;
 	border: 1px solid #ddd;
 	background: #FFF;
 	/* CSS3 effects */
@@ -43,7 +41,7 @@ ul{
 #descriptionResto{
     
     font-size: 20px;    
-    margin: 15% 40 40 500;
+    margin: 0 40 40 500;
     font-family: Georgia, sans-serif;
     line-height: 35px;
     
