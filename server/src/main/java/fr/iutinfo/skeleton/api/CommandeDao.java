@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.BindBean;
+import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
@@ -12,14 +13,16 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommandeDao {
 	
-    @SqlUpdate("Create table commande(id serial primary key, dat varchar(100) ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail),constraint fk_produit foreign key(nom) references produit(nom))")
+    @SqlUpdate("Create table commande(id Integer primary key, dat varchar(100) ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail),constraint fk_produit foreign key(nom) references produit(nom))")
     void createCommandeTable();
     
     @SqlUpdate("Drop table if exists commande")
     void dropCommandeTable();
     
-    @SqlUpdate("insert into commande(dat,mail,nom,prix) values (:dat, :mail, :nom, :prix)")
-    void insertCommande(@Bind("dat") String dat , @Bind("mail") String mail,@Bind("nom") String nom,@Bind("prix") double prix);
+    @SqlUpdate("insert into commande(id,dat,mail,nom,prix) values (:id, :dat, :mail, :nom, :prix)")
+    @GetGeneratedKeys
+    int insertCommande(@BindBean() Commande com);
+    
     
     @SqlUpdate("Delete from commande where id= :id")
     void deleteCommande(@Bind("idl") int id);
@@ -30,7 +33,11 @@ public interface CommandeDao {
 	
 	@SqlQuery("Select * from commande where id = :id")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Commande> findById(@Bind("id") int id);
+	Commande findById(@Bind("id") int id);
+	
+	@SqlQuery("Select * from commande where nom = :nom")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	Commande findByName(@Bind("nom") String nom);
 	
     @SqlQuery("Select * from commande order by dat")
     @RegisterMapperFactory(BeanMapperFactory.class)
