@@ -39,7 +39,8 @@ public class MainTestBdd {
 
 		daoCommande.dropCommandeTable();
 		daoCommande.createCommandeTable();
-		daoCommande.insertCommande(1,"23/03/2017","toto@hotmail.fr","coca",100);
+		daoCommande.insertCommande("cc","cc","cc",100);
+		daoCommande.insertCommande("aaa","aaa","aaa",15);
 		
 
 		ArrayList<Commande> list3 = new ArrayList<>();

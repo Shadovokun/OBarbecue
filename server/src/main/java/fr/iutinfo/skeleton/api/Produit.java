@@ -1,5 +1,8 @@
 package fr.iutinfo.skeleton.api;
 
+import fr.iutinfo.skeleton.common.dto.ProduitDto;
+import fr.iutinfo.skeleton.common.dto.UserDto;
+
 public class Produit {
 	
 	private String nom;
@@ -52,9 +55,19 @@ public class Produit {
 		return "nom : "+nom+" / prix : "+prix;
 	}
 	
+    public void initFromDto(ProduitDto dto) {
+    	this.nom = dto.getNom();
+    	this.description = dto.getDescription();
+    	this.prix = dto.getPrix();
+    }
 	
-	
-	
+    public ProduitDto convertToDto() {
+    	ProduitDto dto = new ProduitDto();
+    	dto.setNom(this.nom);
+    	dto.setDescription(this.description);
+    	dto.setPrix(this.prix);
+        return dto;
+    }
 	
 	
 

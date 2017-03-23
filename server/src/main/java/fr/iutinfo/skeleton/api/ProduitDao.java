@@ -3,6 +3,8 @@ package fr.iutinfo.skeleton.api;
 import java.util.List;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
+import org.skife.jdbi.v2.sqlobject.BindBean;
+import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
@@ -10,16 +12,16 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ProduitDao {
 	
-    @SqlUpdate("Create table produits(nom varchar(100)  primary key, description varchar(10000), chemin_img varchar(100), prix double )")
+    @SqlUpdate("Create table produits(nom varchar(100)  primary key, description varchar(1000), chemin_img varchar(100), prix double )")
     void createProduitsTable();
     
     @SqlUpdate("Drop table if exists produits")
-    void dropProduitsTable();
-    
+    void dropProduitsTable(); 
     
     @SqlUpdate("insert into produits(nom,description,chemin_img,prix) values (:nom, :description, :chemin, :prix)")
-    void insertProduits(@Bind("nom") String nom, @Bind("description") String description, @Bind("chemin") String chemin, @Bind("prix") double prix);
-
+    @GetGeneratedKeys
+    int insertProduit(@BindBean() Produit prod);
+    
     @SqlUpdate("Delete from produits where nom= :nom")
     void deleteProduits(@Bind("nom") String nom);
     
@@ -29,11 +31,17 @@ public interface ProduitDao {
 	
 	@SqlQuery("Select * from produits where nom = :nom")
 	@RegisterMapperFactory(BeanMapperFactory.class)
-	List<Produit> findByNom(@Bind("nom") String nom);
+	Produit findByNom(@Bind("nom") String nom);
     
     @SqlQuery("Select * from produits order by nom")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<Produit> orderByNom();
     
+    @SqlQuery("select * from produit where search like :name")
+    @RegisterMapperFactory(BeanMapperFactory.class)
+    List<Produit> search(@Bind("name") String name);
+    
     void close();
+
+	
 }
