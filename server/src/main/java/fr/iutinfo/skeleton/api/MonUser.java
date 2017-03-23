@@ -1,6 +1,7 @@
 package fr.iutinfo.skeleton.api;
 
 import fr.iutinfo.skeleton.common.dto.MonUserDto;
+import fr.iutinfo.skeleton.common.dto.UserDto;
 
 public class MonUser {
 
@@ -99,5 +100,19 @@ public class MonUser {
 		return "nom : "+nom+" / prenom : "+prenom+" / role : "+role;
 	}
 	
+    public void initFromDto(MonUserDto dto) {
+    	this.setNom(dto.getNom());
+    	this.setPrenom(dto.getPrenom());
+    	this.setMail(dto.getMail());
+    }
+   
+
+    public MonUserDto convertToDto() {
+        MonUserDto dto = new MonUserDto();
+        dto.setNom(this.nom);
+        dto.setPrenom(this.prenom);
+        dto.setMail(this.mail);
+        return dto;
+    }
 	
 }

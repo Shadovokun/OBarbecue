@@ -22,7 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class LoginTest extends JerseyTest {
     final static Logger logger = LoggerFactory.getLogger(LoginTest.class);
     private Helper h;
-    private UserDao dao;
+    private MonUserDao dao;
     private String path = "/login";
 
     @Override

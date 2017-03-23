@@ -16,15 +16,15 @@ public class SecureResource {
 
     @GET
     @Path("/who")
-    public User secureWhoAmI(@Context SecurityContext context) {
-        return (User) context.getUserPrincipal();
+    public MonUser secureWhoAmI(@Context SecurityContext context) {
+        return (MonUser) context.getUserPrincipal();
     }
 
     @GET
     @Path("/byannotation")
     @RolesAllowed({"user"})
-    public User secureByAnnotation(@Context SecurityContext context) {
-        return (User) context.getUserPrincipal();
+    public MonUser secureByAnnotation(@Context SecurityContext context) {
+        return (MonUser) context.getUserPrincipal();
     }
 
 }

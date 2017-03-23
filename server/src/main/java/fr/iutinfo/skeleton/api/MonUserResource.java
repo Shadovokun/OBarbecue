@@ -22,9 +22,8 @@ public class MonUserResource {
 
     public MonUserResource() throws SQLException {
         if (!tableExist("users")) {
-            logger.debug("Create table users");
             dao.createUserTable();
-            dao.insertUser(new MonUser("Thatcher", "Margaret","margaret@thatcher.uk", "user", "margarine", "azerty", "0606060606", 0));
+            dao.insertUsers(new MonUser("toto","toto","toto@hotmail.fr","admin","bonjour", "42 rue de la soif","0606060606", 5));
         }
     }
 
@@ -32,16 +31,14 @@ public class MonUserResource {
     public MonUserDto createUser(MonUserDto dto) {
         MonUser user = new MonUser();
         user.initFromDto(dto);
-        user.resetPasswordHash();
-        int id = dao.insertUser(user);
-        dto.setId(id);
+        int id = dao.insertUsers(user);
         return dto;
     }
 
     @GET
     @Path("/{name}")
-    public MonUserDto getUser(@PathParam("name") String name) {
-        MonUser user = dao.findByName(name);
+    public MonUserDto getUser(@PathParam("mail") String mail) {
+        MonUser user = dao.findByMail(mail);
         if (user == null) {
             throw new WebApplicationException(404);
         }
@@ -51,19 +48,14 @@ public class MonUserResource {
     @GET
     public List<MonUserDto> getAllUsers(@QueryParam("q") String query) {
         List<MonUser> users;
-        if (query == null) {
-            users = dao.all();
-        } else {
-            logger.debug("Search users with query: " + query);
-            users = dao.search("%" + query + "%");
-        }
+        users = dao.all();
         return users.stream().map(MonUser::convertToDto).collect(Collectors.toList());
     }
 
     @DELETE
     @Path("/{id}")
-    public void deleteUser(@PathParam("id") int id) {
-        dao.delete(id);
+    public void deleteUser(@PathParam("mail") String mail) {
+        dao.deleteUser(mail);
     }
 
 }
