@@ -8,11 +8,13 @@ body{
 	width:800px;
 	border:2px solid black;
 	margin:auto; /** met le body au milieu de la page **/
+    overflow-y: scroll;
 }
 
 a{	
 	color:black;           /** ne met pas en violet   **/
     text-decoration:none;  /** enleve le soulignement **/
+    cursor:  pointer;
 }
 
 header .titre{
