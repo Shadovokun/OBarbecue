@@ -32,8 +32,7 @@ public class ProduitsRessource {
     private static ProduitDao dao = getDbi().open(ProduitDao.class);
     
     public ProduitsRessource() throws SQLException {
-        if (!tableExist("users")) {
-            logger.debug("Crate table users");
+        if (!tableExist("produits")) {
             dao.createProduitsTable();
             dao.insertProduit(new Produit("coca","boisson fraiche","img/coca", 2));
         }
