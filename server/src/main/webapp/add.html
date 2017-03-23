@@ -19,6 +19,14 @@
                 padding: 5px;
             }
 
+            textarea {
+                resize: none;
+            }
+
+            .prix{
+                width: 50px;
+            }
+
 
             </style>    
         </header>    
@@ -26,11 +34,11 @@
             <fieldset class="Inscription">
                 <legend>Ajout Menu</legend>
                 <label for="nom">Nom : </label>
-                <input id="nom" name="nom" type="text" /><br />
+                <input id="nom" name="nom" type="text" autofocus/><br />
                 <label for="Description">Description : </label>
-                <input id="description" name="description" type="text" /><br />          
+                <textarea name="commentaire" rows="5" cols="30"></textarea><br />     
                 <label for="prix">prix : </label>
-                <input id="prix" name="prix" type="text" /><br />
+                <input class="prix" name="prix" type="number" min="0" step="0.5"/> €<br />
                 <label for="img">Image : </label>
                 <input type="file" onmousedown="return false" onkeydown="return false" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
 
