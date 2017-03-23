@@ -7,38 +7,34 @@ import java.security.Principal;
 
 public class UserDto implements Principal {
     final static Logger logger = LoggerFactory.getLogger(UserDto.class);
-    private String nom;
-    private String prenom;
-    private String mail;
+    private String name;
+    private String alias;
+    private int id = 0;
+    private String email;
     private String password;
-    private String role;
-	private String mdp;
-	private String adresse;
-	private String numTelephone;
-	private int nbrCmd;
 
-	public String getNom() {
-        return nom;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
-    public String getPrenom() {
-        return prenom;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-    
-    public String getMail() {
-        return mail;
+    public int getId() {
+        return id;
     }
 
-    public void setMail(String email) {
-        this.mail = email;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {
@@ -48,45 +44,13 @@ public class UserDto implements Principal {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public String getRole() {
-        return role;
+
+    public String getAlias() {
+        return alias;
     }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
-    
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
-    
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-    
-    public String getNumTelephone() {
-        return numTelephone;
-    }
-
-    public void setNumTelephone(String num) {
-        this.numTelephone = num;
-    }
-    
-    public int getNbrCmd() {
-        return nbrCmd;
-    }
-
-    public void setNbrCmd(int nombre) {
-        this.nbrCmd = nombre;
+    public void setAlias(String alias) {
+        this.alias = alias;
     }
 
 }

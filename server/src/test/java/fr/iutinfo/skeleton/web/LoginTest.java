@@ -1,7 +1,7 @@
 package fr.iutinfo.skeleton.web;
 
 import fr.iutinfo.skeleton.api.Helper;
-import fr.iutinfo.skeleton.api.UserDao;
+import fr.iutinfo.skeleton.api.UserDao_prof;
 import org.glassfish.jersey.internal.util.Base64;
 import org.glassfish.jersey.test.JerseyTest;
 import org.junit.Before;

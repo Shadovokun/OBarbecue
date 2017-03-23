@@ -3,10 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.iutinfo.skeleton</groupId>
-    <artifactId>agile-skeleton</artifactId>
+    <artifactId>obarbecue</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <name>shadovokun/obarbecue</name>
     <url>http://maven.apache.org</url>
 
     <build>
@@ -45,5 +46,4 @@
             <version>${logback-classic.version}</version>
         </dependency>
     </dependencies>
-    <name>shadovokun/obarbecue</name>
 </project>
