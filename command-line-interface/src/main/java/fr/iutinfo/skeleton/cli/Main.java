@@ -1,6 +1,6 @@
 package fr.iutinfo.skeleton.cli;
 
-import fr.iutinfo.skeleton.common.dto.UserDto;
+import fr.iutinfo.skeleton.common.dto.MonUserDto;
 import fr.iutinfo.skeleton.common.remote.UsersProvider;
 
 import java.util.List;
@@ -33,16 +33,16 @@ public class Main {
     }
 
     private static void listUSer() {
-        List<UserDto> users = usersProvider.readAllUsers();
-        for (UserDto user : users) {
+        List<MonUserDto> users = usersProvider.readAllUsers();
+        for (MonUserDto user : users) {
             System.out.println(user);
         }
     }
 
     private static void addUser() {
-        UserDto user = new UserDto();
-        user.setName(queryAndReadLine("Quel est ton nom ?"));
-        user.setEmail(queryAndReadLine("Quel est ton mail ?"));
+        MonUserDto user = new MonUserDto();
+        user.setNom(queryAndReadLine("Quel est ton nom ?"));
+        user.setMail(queryAndReadLine("Quel est ton mail ?"));
         usersProvider.addUser(user);
     }
 

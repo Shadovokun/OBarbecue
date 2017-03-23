@@ -1,9 +1,11 @@
 package fr.iutinfo.skeleton.api;
 
+import java.security.Principal;
+
 import fr.iutinfo.skeleton.common.dto.MonUserDto;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 
-public class MonUser {
+public class MonUser implements Principal{
 
 	private String nom;
 	private String prenom;
@@ -114,5 +116,10 @@ public class MonUser {
         dto.setMail(this.mail);
         return dto;
     }
+
+	@Override
+	public String getName() {
+		return nom;
+	}
 	
 }

@@ -1,5 +1,6 @@
 package fr.iutinfo.skeleton.common.remote;
 
+import fr.iutinfo.skeleton.common.dto.MonUserDto;
 import fr.iutinfo.skeleton.common.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,12 +21,12 @@ public class UsersProvider {
     }
 
 
-    public List<UserDto> readAllUsers() {
+    public List<MonUserDto> readAllUsers() {
         try {
             return ClientBuilder.newClient()//
                     .target(baseUrl + "user/")
                     .request()
-                    .get(new GenericType<List<UserDto>>() {
+                    .get(new GenericType<List<MonUserDto>>() {
                     });
         } catch (Exception e) {
             String message = ClientBuilder.newClient()
@@ -38,25 +39,25 @@ public class UsersProvider {
         }
     }
 
-    public UserDto addUser(UserDto user) {
-        logger.debug("Create user : " + user.getName());
-        Entity<UserDto> userEntity = Entity.entity(user, MediaType.APPLICATION_JSON);
+    public MonUserDto addUser(MonUserDto olivier) {
+        logger.debug("Create user : " + olivier.getNom());
+        Entity<MonUserDto> userEntity = Entity.entity(olivier, MediaType.APPLICATION_JSON);
 
         return ClientBuilder.newClient()
                 .target(baseUrl + "user/")
                 .request()
                 .post(userEntity)
-                .readEntity(UserDto.class);
+                .readEntity(MonUserDto.class);
     }
 
-    public UserDto readUser(String name) {
+    public MonUserDto readUser(String name) {
         String url = baseUrl + "user/" + name;
         logger.debug("Reade url : " + url);
 
         return ClientBuilder.newClient()//
                 .target(url)
                 .request()
-                .get(UserDto.class);
+                .get(MonUserDto.class);
     }
 
     public void setBaseUrl(String baseUrl) {
