@@ -44,7 +44,7 @@ function postUserBdd(nom, prenom, mail, role, pwd, adresse, num) {
     postUserGeneric(nom, prenom, mail, role, pwd, adresse, num, 0, "v1/user/");
 }
 
-function postUserGeneric(nom, prenom, mail, role, pwd, adresse, num_tel, nbr_cmd, url) {
+function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, url) {
 	console.log("postUserGeneric " + url)
 	$.ajax({
 		type : 'POST',
@@ -58,8 +58,8 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, num_tel, nbr_cmd
 			"role" : role,
 			"mdp" : pwd,
 			"adresse" : adresse,
-			"num_tel" : num_tel,
-			"nbr_cmd" : nbr_cmd
+			"numTel" : numTel,
+			"nbrCmd" : nbrCmd
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheUser(data);
