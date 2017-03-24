@@ -334,3 +334,14 @@ label{
     width: 50px;  
     margin-right: 120px;
 }
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	height: 50%;
+	width: 45%;
+}
