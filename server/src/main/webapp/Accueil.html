@@ -3,18 +3,15 @@
 <HEAD>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="Accueil.css">
     <link rel="stylesheet" href="general.css">
-    <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="contact.css">
     <script src='jquery-2.1.3.js'></script>
     <script src='all.js'></script>
     <script type="text/javascript"> 
              $(document).ready(function(){
-                $("#page-accueil").show();
+                $("#page-accueil").hide();
                 $("#page-menu").hide();
                 $("#page-contact").hide();
-                $("#page-admin").hide();
+                $("#page-admin").show();
                 $("#page-add").hide();
                 $("#page-connexion").hide();
                 $("#page-inscription").hide();
@@ -135,7 +132,7 @@
    </aside>
    
    <HEADER>
-    <img src="images/OBarbecue.png" class="titre"/>
+    <img src="images/OBarbecue.png" class="titre" />
     <NAV>
         <div id="EnTete">                    
             <a id="accueil">Accueil</a>
@@ -272,7 +269,7 @@
 
 
 
-<form method="post" action="???">
+<form method="get" action="Accueil.html">
     <fieldset>
         <legend>Laissez nous votre avis</legend>
         <label for="mail">Votre adresse mail :</label>
@@ -293,8 +290,6 @@
     
 <div id="page-connexion">
 
-        <br/>
-        
         <form method="post" action="connexion.???">
             <fieldset>
                 <legend>Connectez-vous</legend>
@@ -384,7 +379,7 @@ Ut ultrices quam id leo sollicitudin laoreet. Proin dapibus laoreet eros, sit am
 
 <div class="bas">
     <input type="submit" value="Valider"/>
-    <input type='button' value='Ajouter Menu' onClick='PopupCentrer("add.html",600,340,"menubar=no,scrollbars=no,statusbar=no")'>
+    <input type='button' id="add" value='Ajouter Menu' onClick='PopupCentrer("add.html",600,340,"menubar=no,scrollbars=no,statusbar=no")'>
     <input type="submit" value="Modifier"/> 
     <input type="reset" value="Annuler"/>
 </div>
@@ -400,8 +395,8 @@ Ut ultrices quam id leo sollicitudin laoreet. Proin dapibus laoreet eros, sit am
                 <input id="description" name="description" type="text" /><br />          
                 <label for="prix">prix : </label>
                 <input id="prix" name="prix" type="text" /><br />
-                <label for="img">Image : </label>
-                <input type="file" onmousedown="return false" onkeydown="return false" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
+                <label for="img" id="mettre-image">Image : </label>
+                <input type="file"  onmousedown="return false" onkeydown="return false" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
 
                 <input type="submit" value="Valider"/> 
                 <input type="reset" value="Annuler"/>
