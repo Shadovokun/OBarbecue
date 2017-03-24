@@ -38,7 +38,7 @@ public class Produit {
 		return cheminImg;
 	}
 
-	public void setChemin_img(String cheminImg) {
+	public void setCheminImg(String cheminImg) {
 		this.cheminImg = cheminImg;
 	}
 

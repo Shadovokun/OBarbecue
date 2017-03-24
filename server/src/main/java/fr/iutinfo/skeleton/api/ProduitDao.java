@@ -18,7 +18,7 @@ public interface ProduitDao {
     @SqlUpdate("Drop table if exists produits")
     void dropProduitsTable(); 
     
-    @SqlUpdate("insert into produits(nom,description,cheminImg,prix) values (:nom, :description, :cheminImg, :prix)")
+    @SqlUpdate("Insert into produits(nom,description,cheminImg,prix) values (:nom, :description, :cheminImg, :prix)")
     @GetGeneratedKeys
     int insertProduit(@BindBean() Produit prod);
     

@@ -10,21 +10,52 @@ public class MainTestBdd {
 		// TODO Auto-generated method stub
 
 		DBI dbi = BDDFactory.getDbi();
-		MonUserDao dao = dbi.open(MonUserDao.class);
+		MonUserDao daoUser = dbi.open(MonUserDao.class);
 		
-		dao.dropUserTable();
-		System.out.println("Table drop");
-		dao.createUserTable();
-		System.out.println("Table created");
-		dao.insertUsers(new MonUser("toto","tata", "tutu","toto","toto","toto","toot",0));
-		dao.insertUsers(new MonUser("toto2","tata2", "tutu2","toto2","toto2","toto2","toot2",0));
+		daoUser.dropUserTable();
+		daoUser.createUserTable();
+		System.out.println("USERS :");
+		daoUser.insertUsers(new MonUser("toto","tata", "tutu","toto","toto","toto","toot",0));
+		daoUser.insertUsers(new MonUser("toto2","tata2", "tutu2","toto2","toto2","toto2","toot2",0));
 		
 		
 		ArrayList<MonUser> list = new ArrayList();
 		
-		list = (ArrayList<MonUser>) dao.all();
+		list = (ArrayList<MonUser>) daoUser.all();
 		
 		for(MonUser u : list){
+			System.out.println(u);
+		}
+		
+ProduitDao daoProduit = dbi.open(ProduitDao.class);
+		
+		daoProduit.dropProduitsTable();
+		daoProduit.createProduitsTable();
+		System.out.println("PRODUITS :");
+		daoProduit.insertProduit(new Produit("Poulet braisé", "Huuuuum le bon poulet !", "/img/pouletBraise.jpg", 8.50 ));
+		daoProduit.insertProduit(new Produit("Poulet à la mexicaine", "DAT CHICKEN !!", "/img/pouletMexicaine.jpg", 8.50 ));
+	
+		ArrayList<Produit> list2 = new ArrayList();
+		
+		list2 = (ArrayList<Produit>) daoProduit.all();
+		
+		for(Produit u : list2){
+			System.out.println(u);
+		}
+		
+		CommandeDao daoCommande = dbi.open(CommandeDao.class);
+		
+		daoCommande.dropCommandeTable();
+		daoCommande.createCommandeTable();
+		System.out.println("COMMANDE :");
+		daoCommande.insertCommande(new Commande(1, "24/03/2017", "tutu", "Menu1", 8.50));
+		daoCommande.insertCommande(new Commande(2, "24/03/2017", "tutu2", "Menu2", 5.50));
+	
+		ArrayList<Commande> list3 = new ArrayList();
+		
+		list3 = (ArrayList<Commande>) daoCommande.all();
+		
+		for(Commande u : list3){
 			System.out.println(u);
 		}
 	}

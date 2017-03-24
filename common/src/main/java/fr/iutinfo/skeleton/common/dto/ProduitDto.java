@@ -3,8 +3,10 @@ package fr.iutinfo.skeleton.common.dto;
 import java.security.Principal;
 
 public class ProduitDto implements Principal{
+	
 	private String nom;
 	private String description;
+	private String cheminImg;
 	private double prix;
 	
 	@Override
@@ -26,6 +28,14 @@ public class ProduitDto implements Principal{
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getCheminImg() {
+		return cheminImg;
+	}
+
+	public void setCheminImg(String cheminImg) {
+		this.cheminImg = cheminImg;
 	}
 
 	public double getPrix() {

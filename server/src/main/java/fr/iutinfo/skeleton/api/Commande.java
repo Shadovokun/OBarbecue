@@ -1,23 +1,20 @@
 package fr.iutinfo.skeleton.api;
 
-import java.sql.Date;
-
 import fr.iutinfo.skeleton.common.dto.CommandeDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
 public class Commande {
 	
 	private int id;
 	private String date;
-	private String mail_user;
-	private String nom_produit;
+	private String mailUser;
+	private String nomProduit;
 	private double prix;
 	
-	public Commande(int id, String date ,String mail_user,String nom, double prix){
+	public Commande(int id, String date ,String mailUser,String nom, double prix){
 		this.id = id;
 		this.date = date;
-		this.mail_user = mail_user;
-		this.nom_produit = nom_produit;
+		this.mailUser = mailUser;
+		this.nomProduit = nomProduit;
 		this.prix = prix;
 	}
 	
@@ -39,16 +36,16 @@ public class Commande {
 		this.id = id;
 	}
 
-	public String getMail_user() {
-		return mail_user;
+	public String getMailUser() {
+		return mailUser;
 	}
 
-	public void setMail_user(String mail_user) {
-		this.mail_user = mail_user;
+	public void setMailUser(String mail_user) {
+		this.mailUser = mail_user;
 	}
 
-	public String getNom_produit() {
-		return nom_produit;
+	public String getNomProduit() {
+		return nomProduit;
 	}
 
 	public void setNom_menu(String nom_produit) {

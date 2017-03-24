@@ -22,7 +22,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.iutinfo.skeleton.common.dto.ProduitDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
 @Path("/produit")
 @Produces(MediaType.APPLICATION_JSON)
