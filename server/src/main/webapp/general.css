@@ -216,6 +216,7 @@ nav{
     font-size: 30px;
     font-variant:small-caps;
     border-top:4px solid #803315;
+    margin-bottom: 20px;
 }
 
 nav a:hover{
@@ -253,13 +254,12 @@ footer{
 h3{     /** pas de h3 dans le code..? **/
 	color: #803315;
 	font-size:18px;
-	font-weight: bold;
+	font-weight: bold; 
 	margin:0px;
 }
 
 label{
- 	display: inline-block;
-    
+ 	display: inline-block;    
 	width: 100px;
   	padding: 7px;
 }
@@ -323,10 +323,14 @@ label{
 #page-add label{
     text-align: right;
     width: 80px;
-    padding-right: 20px;
-    padding-top:
+    padding-right: 20px;    
 }
 
 #mettre-image{
     padding-left: 84px;    
+}
+
+#prix{
+    width: 50px;  
+    margin-right: 120px;
 }
