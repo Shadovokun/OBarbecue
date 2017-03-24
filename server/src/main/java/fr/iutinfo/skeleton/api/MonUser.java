@@ -106,6 +106,11 @@ public class MonUser implements Principal{
     	this.setNom(dto.getNom());
     	this.setPrenom(dto.getPrenom());
     	this.setMail(dto.getMail());
+    	
+    	this.setAdresse(dto.getAdresse());
+    	this.setMdp(dto.getAdresse());
+    	this.setRole(dto.getRole());
+    	this.setNum_telephone(dto.getNum_telephone());
     }
    
 
@@ -114,6 +119,12 @@ public class MonUser implements Principal{
         dto.setNom(this.nom);
         dto.setPrenom(this.prenom);
         dto.setMail(this.mail);
+        
+        dto.setAdresse(this.adresse);
+        dto.setMdp(this.mdp);
+        dto.setRole(this.role);
+        dto.setMail(this.mail);
+        
         return dto;
     }
 
