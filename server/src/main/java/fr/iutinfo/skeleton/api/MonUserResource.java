@@ -57,5 +57,17 @@ public class MonUserResource {
     public void deleteUser(@PathParam("mail") String mail) {
         dao.deleteUser(mail);
     }
+    
+    //Vérifie si l'utilisateur existe.
+    @GET
+    public String connexion(@PathParam("mail") String mail, @PathParam("mdp") String mdp) {
+    	MonUser user = dao.findByMailAndMdp(mail, mdp);
+    	if(user != null){
+    		return user.getRole();
+    	} else {
+    		return null;
+    	}
+    }
+    
 
 }

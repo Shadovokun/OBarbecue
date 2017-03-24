@@ -37,6 +37,10 @@ public interface MonUserDao {
     @SqlQuery("Select * from users order by nbrCmd")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<MonUser> orderByCmd();
+    
+	@SqlQuery("Select role from users where mail = :mail and mdp = :mdp")
+	@RegisterMapperFactory(BeanMapperFactory.class)
+	MonUser findByMailAndMdp(@Bind("mail") String mail, @Bind("mdp") String mdp);
 	
 	void close();
 }
