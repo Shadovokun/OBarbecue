@@ -14,7 +14,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 public interface MonUserDao {
 	
 	@SqlUpdate("Create table users(nom varchar(100), prenom varchar(100), mail varchar(1000) primary key, role varchar(100),"
-	  	+ " mdp varchar(100) , adresse varchar(1000), num_tel varchar(10), nbr_cmd Integer)")
+	  	+ " mdp varchar(100) , adresse varchar(1000),   varchar(10), nbr_cmd Integer)")
 	void createUserTable();
 	
     @SqlUpdate("Drop table if exists users")
