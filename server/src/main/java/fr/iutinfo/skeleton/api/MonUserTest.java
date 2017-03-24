@@ -1,14 +1,14 @@
 package fr.iutinfo.skeleton.api;
 
-import static org.junit.Assert.*;
+/*import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import fr.iutinfo.skeleton.common.dto.MonUserDto;
+import fr.iutinfo.skeleton.common.dto.MonUserDto;*/
 
 public class MonUserTest {
 
-	@Test
+	/*@Test
 	public void createUserCourtTest(){
 		MonUser user = new MonUser("nom", "prenom", "mail", "role");
 		assertEquals("nom", user.getNom());
@@ -85,6 +85,6 @@ public class MonUserTest {
 		assertEquals("numero", user.getNumTel());
 		assertEquals(0, user.getNbrCmd());
 		
-	}
+	}*/
 
 }
