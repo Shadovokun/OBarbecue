@@ -109,6 +109,9 @@
         $("#inscr").click(function(){
             postUserBdd($("#nom").val(), $("#prenom").val(), $("#email").val(), "user", $("#pass").val(), 
                 $("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val());
+            $("#reponse-inscription").html("C'est enregistré !");
+            
+            
         });
 
         var fileValue;
@@ -358,7 +361,7 @@ async defer>
 </div>
 
 <div id="page-inscription">
-
+	<div id="reponse-inscription"></div>
     <form method="post">
         <fieldset class="Inscription">
             <legend>Inscription</legend>
@@ -382,6 +385,8 @@ async defer>
             <input type="reset" value="Annuler"/>
         </fieldset>
     </form>  
+    
+    <br /> <br /> <br />
 </div>
 
 <div id="page-mentions-legales">
