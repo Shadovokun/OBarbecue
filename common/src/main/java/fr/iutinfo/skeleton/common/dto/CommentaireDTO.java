@@ -10,13 +10,13 @@ public class CommentaireDTO {
 	private int note;
 
 	
-	public String getContenue() {
+	public String getContenu() {
 		return contenu;
 	}
 
 
-	public void setContenue(String contenue) {
-		this.contenu = contenue;
+	public void setContenu(String contenu) {
+		this.contenu = contenu;
 	}
 
 

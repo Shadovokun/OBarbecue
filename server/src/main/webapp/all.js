@@ -70,6 +70,38 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, num_tel, nbr_cmd
 	});
 }
 
+function postProduitBdd(nom, desc, prix, img) {
+    postProduitGeneric(nom, desc, prix, img, "v1/produit/");
+}
+
+function postProduitGeneric(nom, desc, prix, img, url) {
+	console.log("postUserGeneric " + url)
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"nom" : nom,
+			"description" : desc,
+			"cheminImg" : img,
+			"prix" : prix
+			
+		}),
+		success : function(data, textStatus, jqXHR) {
+			afficheProduit(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postUser error: ' + textStatus);
+		}
+	});
+}
+
+function afficheProduit(data) {
+	console.log(data);
+	$("#reponse").html(data.nom + " - " + data.description + " - " + data.prix);
+}
+
 function listUsersBdd() {
     listUsersGeneric("v1/user/");
 }
@@ -78,19 +110,3 @@ function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
 		afficheListUsers(data)
 	});
-}
-
-function afficheUser(data) {
-	console.log(data);
-	$("#reponse").html(data.id + " : <b>" + data.alias + "</b> (" + data.name + ")");
-}
-
-function afficheListUsers(data) {
-	var html = '<ul>';
-	var index = 0;
-	for (index = 0; index < data.length; ++index) {
-		html = html + "<li>"+ data[index].name + "</li>";
-	}
-	html = html + "</ul>";
-	$("#reponse").html(html);
-}
