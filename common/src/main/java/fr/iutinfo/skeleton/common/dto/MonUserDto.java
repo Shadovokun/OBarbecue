@@ -1,7 +1,10 @@
 package fr.iutinfo.skeleton.common.dto;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class MonUserDto {
-	
+    final static Logger logger = LoggerFactory.getLogger(MonUserDto.class);
 	private String nom;
     private String prenom;
     private String mail;
@@ -10,6 +13,23 @@ public class MonUserDto {
     private String adresse;
 	private String numTel;
 	private int nbrCmd;
+	
+	public MonUserDto(String nom, String prenom , String mail, String role){
+		this.nom = nom;
+		this.prenom = prenom;
+		this.mail = mail;
+		this.role = role;
+	}
+	
+	public MonUserDto(String nom, String prenom , String mail, String role, String mdp, String adresse, String numTelephone, int nbr){
+		this(nom,prenom,mail,role);
+		this.mdp = mdp;
+		this.adresse = adresse;
+		this.numTel = numTelephone;
+		this.nbrCmd = nbr;
+	}
+	
+	public MonUserDto(){}
 	
 	
 	public String getNom() {
