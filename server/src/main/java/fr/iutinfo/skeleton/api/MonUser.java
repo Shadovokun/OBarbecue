@@ -62,7 +62,7 @@ public class MonUser implements Principal{
 	}
 
 	public void setRole(String role) {
-		this.role = role;System.out.println("Table drop");
+		this.role = role;
 	}
 
 	public String getMdp() {

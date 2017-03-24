@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.skife.jdbi.v2.DBI;
 
+import fr.iutinfo.skeleton.common.dto.CommentaireDTO;
+
 public class MainTestBdd {
 
 	public static void main(String[] args) {
@@ -27,7 +29,7 @@ public class MainTestBdd {
 			System.out.println(u);
 		}
 		
-ProduitDao daoProduit = dbi.open(ProduitDao.class);
+		ProduitDao daoProduit = dbi.open(ProduitDao.class);
 		
 		daoProduit.dropProduitsTable();
 		daoProduit.createProduitsTable();
@@ -58,6 +60,25 @@ ProduitDao daoProduit = dbi.open(ProduitDao.class);
 		for(Commande u : list3){
 			System.out.println(u);
 		}
+		
+		System.out.println("COMMENTAIRE :");
+		
+		CommentaireDAO daoCommentaire = dbi.open(CommentaireDAO.class);
+		
+		daoCommentaire.dropCommentaireTable();
+		daoCommentaire.createCommentaireTable();
+		
+		daoCommentaire.insertCommentaire(new Commentaire(1, "tut", "tt", "tto", 5));
+		
+		ArrayList<Commentaire> list4 = new ArrayList();
+		
+		list4 = (ArrayList<Commentaire>) daoCommentaire.all();
+		
+		for(Commentaire u : list4){
+			System.out.println(u);
+		}
+		
+		
 	}
 
 }

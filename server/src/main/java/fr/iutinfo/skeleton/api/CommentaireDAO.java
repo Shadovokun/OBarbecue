@@ -12,7 +12,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommentaireDAO {
 
-	@SqlUpdate("create table Commentaire (id integer primary key autoincrement, contenu varchar(500), date varchar(50), mail varchar(50), note integer check (note>-1), check (note<6) ")
+	@SqlUpdate("create table Commentaire (id integer primary key autoincrement, contenu varchar(500), date varchar(50), mail varchar(50), note integer check (note>-1), check (note<6)) ")
     void createCommentaireTable();
 	
 	 @SqlUpdate("insert into Commentaire (id,contenu,date,mail,note) values (:id, :contenu, :date, :mail, :note)")
@@ -28,7 +28,7 @@ public interface CommentaireDAO {
 	  List<Commentaire> findByAll();
 	 
 	 @SqlUpdate("drop table if exists Commentaire")
-	 void dropUserTable();
+	 void dropCommentaireTable();
 	 
 	 @SqlQuery("select * from Commentaire order by id")
 	 @RegisterMapperFactory(BeanMapperFactory.class)

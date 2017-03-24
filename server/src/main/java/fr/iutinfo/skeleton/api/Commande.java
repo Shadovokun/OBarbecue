@@ -5,27 +5,27 @@ import fr.iutinfo.skeleton.common.dto.CommandeDto;
 public class Commande {
 	
 	private int id;
-	private String date;
-	private String mailUser;
-	private String nomProduit;
+	private String dat;
+	private String mail;
+	private String nom;
 	private double prix;
 	
 	public Commande(int id, String date ,String mailUser,String nom, double prix){
 		this.id = id;
-		this.date = date;
-		this.mailUser = mailUser;
-		this.nomProduit = nomProduit;
+		this.dat = date;
+		this.mail = mailUser;
+		this.nom = nom;
 		this.prix = prix;
 	}
 	
 	public Commande(){}
 	
-	public String getDate() {
-		return date;
+	public String getDat() {
+		return dat;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setDat(String dat) {
+		this.dat = dat;
 	}
 
 	public int getId() {
@@ -36,20 +36,20 @@ public class Commande {
 		this.id = id;
 	}
 
-	public String getMailUser() {
-		return mailUser;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setMailUser(String mail_user) {
-		this.mailUser = mail_user;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
-	public String getNomProduit() {
-		return nomProduit;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setNom_menu(String nom_produit) {
-		this.nom_produit = nom_produit;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	public double getPrix() {
@@ -61,23 +61,23 @@ public class Commande {
 	}
 
 	public String toString(){
-		return "id : "+id+" / mail user : "+mail_user+" / produit : "+nom_produit +" / date : "+date +" / prix :"+prix ;
+		return "id : "+id+" / mail user : "+mail+" / produit : "+nom +" / date : "+dat +" / prix :"+prix ;
 	}
 	
     public void initFromDto(CommandeDto dto) {
         this.setId(dto.getId());
-        this.setDate(dto.getDate());
-        this.setMail_user(dto.getMail_user());
-        this.setNom_menu(dto.getNom_produit());
+        this.setDat(dto.getDate());
+        this.setMail(dto.getMail_user());
+        this.setNom(dto.getNom_produit());
         this.setPrix(dto.getPrix());
     }
 
     public CommandeDto convertToDto() {
         CommandeDto dto = new CommandeDto();
         dto.setId(this.getId());
-        dto.setDate(this.getDate());
-        dto.setMail_user(this.getMail_user());
-        dto.setNom_menu(this.getNom_produit());
+        dto.setDate(this.getDat());
+        dto.setMail_user(this.getMail());
+        dto.setNom_menu(this.getNom());
         dto.setPrix(this.getPrix());
         return dto;
     }
