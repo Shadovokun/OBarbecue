@@ -106,11 +106,19 @@
                 $("#page-mentions-legales").hide();
                 });
 
-                  $("#inscr").click(function(){
-                    postAddUserGeneric($("#nom").val(), $("#prenom").val(), "client", $("#email").val(), $("#pass").val(), "v1/user", 
-                        $("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val(), 0);
-                    alert("si àa plente ça va pas apres");
-                  });
+                $("#inscr").click(function(){
+                    postUserBdd($("#nom").val(), $("#prenom").val(), $("#email").val(), "user", $("#pass").val(), 
+                        $("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val());
+                });
+
+                var fileValue;
+                document.querySelector('#inputFile').addEventListener('change', function() {
+                    fileValue = this.files[0].name;
+                });
+
+                $("#addMenu").click(function(){
+                   postUserBdd($("#nomMenu").val(), $("#description").val(), $("#prix").val(), fileValue);
+                })
                 
             });      
             
@@ -396,7 +404,7 @@ Ut ultrices quam id leo sollicitudin laoreet. Proin dapibus laoreet eros, sit am
                 <label for="prix">prix  (€): </label>
                 <input id="prix" name="prix" type="text" /><br />
                 <label for="img" id="mettre-image">Image : </label>
-                <input type="file"  onmousedown="return false" onkeydown="return false" class="inputFile" onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
+                <input id="inputFile" type="file"  onmousedown="return false" onkeydown="return false"  onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
 
                 <input type="submit" value="Valider"/> 
                 <input type="reset" value="Annuler"/>
