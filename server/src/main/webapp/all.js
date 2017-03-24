@@ -75,7 +75,7 @@ function postProduitBdd(nom, desc, prix, img) {
 }
 
 function postProduitGeneric(nom, desc, prix, img, url) {
-	console.log("postUserGeneric " + url)
+	console.log("postProduitGeneric " + url)
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -110,3 +110,19 @@ function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
 		afficheListUsers(data)
 	});
+}
+
+function afficheUser(data) {
+	console.log(data);
+	$("#reponse").html(data.nom + " : <b>" + data.prenom + "</b> (" + data.mail + ")");
+}
+
+function afficheListUsers(data) {
+	var html = '<ul>';
+	var index = 0;
+	for (index = 0; index < data.length; ++index) {
+		html = html + "<li>"+ data[index].nom + "</li>";
+	}
+	html = html + "</ul>";
+	$("#reponse").html(html);
+}

@@ -36,7 +36,7 @@ public class MonUserResource {
     }
 
     @GET
-    @Path("/{name}")
+    @Path("/{mail}")
     public MonUserDto getUser(@PathParam("mail") String mail) {
         MonUser user = dao.findByMail(mail);
         if (user == null) {
@@ -53,21 +53,20 @@ public class MonUserResource {
     }
 
     @DELETE
-    @Path("/{id}")
+    @Path("/{mail}")
     public void deleteUser(@PathParam("mail") String mail) {
         dao.deleteUser(mail);
     }
     
     //Vérifie si l'utilisateur existe.
     @GET
+    @Path("/connexion/{mail}&{mdp}")
     public String connexion(@PathParam("mail") String mail, @PathParam("mdp") String mdp) {
     	MonUser user = dao.findByMailAndMdp(mail, mdp);
-    	if(user != null){
-    		return user.getRole();
-    	} else {
-    		return null;
-    	}
+    	if (user == null) {
+            throw new WebApplicationException(404);
+        }
+        return user.getRole();
     }
-    
 
 }
