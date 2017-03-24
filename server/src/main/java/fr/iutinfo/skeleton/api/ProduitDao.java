@@ -12,13 +12,13 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface ProduitDao {
 	
-    @SqlUpdate("Create table produits(nom varchar(100)  primary key, description varchar(1000), chemin_img varchar(100), prix double )")
+    @SqlUpdate("Create table produits(nom varchar(100)  primary key, description varchar(1000), cheminImg varchar(100), prix double )")
     void createProduitsTable();
     
     @SqlUpdate("Drop table if exists produits")
     void dropProduitsTable(); 
     
-    @SqlUpdate("insert into produits(nom,description,chemin_img,prix) values (:nom, :description, :chemin, :prix)")
+    @SqlUpdate("insert into produits(nom,description,cheminImg,prix) values (:nom, :description, :cheminImg, :prix)")
     @GetGeneratedKeys
     int insertProduit(@BindBean() Produit prod);
     

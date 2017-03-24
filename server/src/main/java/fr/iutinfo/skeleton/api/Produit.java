@@ -1,19 +1,18 @@
 package fr.iutinfo.skeleton.api;
 
 import fr.iutinfo.skeleton.common.dto.ProduitDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
 public class Produit {
 	
 	private String nom;
 	private String description;
-	private String chemin_img;
+	private String cheminImg;
 	private double prix;
 	
-	public Produit(String nom, String description, String chemin_img, double prix){
+	public Produit(String nom, String description, String cheminImg, double prix){
 		this.nom = nom;
 		this.description = description;
-		this.chemin_img = chemin_img;
+		this.cheminImg = cheminImg;
 		this.prix = prix;
 	}
 	
@@ -35,12 +34,12 @@ public class Produit {
 		this.description = description;
 	}
 
-	public String getChemin_img() {
-		return chemin_img;
+	public String getCheminImg() {
+		return cheminImg;
 	}
 
-	public void setChemin_img(String chemin_img) {
-		this.chemin_img = chemin_img;
+	public void setChemin_img(String cheminImg) {
+		this.cheminImg = cheminImg;
 	}
 
 	public double getPrix() {

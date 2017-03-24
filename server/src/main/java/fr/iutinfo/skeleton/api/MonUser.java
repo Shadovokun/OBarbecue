@@ -3,7 +3,6 @@ package fr.iutinfo.skeleton.api;
 import java.security.Principal;
 
 import fr.iutinfo.skeleton.common.dto.MonUserDto;
-import fr.iutinfo.skeleton.common.dto.UserDto;
 
 public class MonUser implements Principal{
 
@@ -13,8 +12,8 @@ public class MonUser implements Principal{
 	private String role;
 	private String mdp;
 	private String adresse;
-	private String num_telephone;
-	private int nbr_cmd;
+	private String numTel;
+	private int nbrCmd;
 	
 	
 	public MonUser(String nom, String prenom , String mail, String role){
@@ -28,8 +27,8 @@ public class MonUser implements Principal{
 		this(nom,prenom,mail,role);
 		this.mdp = mdp;
 		this.adresse = adresse;
-		this.num_telephone = numTelephone;
-		this.nbr_cmd = nbr;
+		this.numTel = numTelephone;
+		this.nbrCmd = nbr;
 	}
 
 	public MonUser(){}
@@ -63,7 +62,7 @@ public class MonUser implements Principal{
 	}
 
 	public void setRole(String role) {
-		this.role = role;
+		this.role = role;System.out.println("Table drop");
 	}
 
 	public String getMdp() {
@@ -82,20 +81,20 @@ public class MonUser implements Principal{
 		this.adresse = adresse;
 	}
 
-	public String getNum_telephone() {
-		return num_telephone;
+	public String getNumTel() {
+		return numTel;
 	}
 
-	public void setNum_telephone(String num_telephone) {
-		this.num_telephone = num_telephone;
+	public void setNumTel(String numTel) {
+		this.numTel = numTel;
 	}
 
-	public int getNbr_cmd() {
-		return nbr_cmd;
+	public int getNbrCmd() {
+		return nbrCmd;
 	}
 
-	public void setNbr_cmd(int nbr_cmd) {
-		this.nbr_cmd = nbr_cmd;
+	public void setNbrCmd(int nbrCmd) {
+		this.nbrCmd = nbrCmd;
 	}
 	
 	public String toString(){
@@ -108,9 +107,10 @@ public class MonUser implements Principal{
     	this.setMail(dto.getMail());
     	
     	this.setAdresse(dto.getAdresse());
-    	this.setMdp(dto.getAdresse());
+    	this.setMdp(dto.getMdp());
     	this.setRole(dto.getRole());
-    	this.setNum_telephone(dto.getNum_telephone());
+    	this.setNumTel(dto.getNumTel());
+    	this.setNbrCmd(dto.getNbrCmd());
     }
    
 
@@ -119,11 +119,13 @@ public class MonUser implements Principal{
         dto.setNom(this.nom);
         dto.setPrenom(this.prenom);
         dto.setMail(this.mail);
+        dto.setNumTel(this.numTel);
         
         dto.setAdresse(this.adresse);
         dto.setMdp(this.mdp);
         dto.setRole(this.role);
         dto.setMail(this.mail);
+        dto.setNbrCmd(this.nbrCmd);
         
         return dto;
     }

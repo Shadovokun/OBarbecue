@@ -30,9 +30,11 @@
             <div class="form-group">
                 <h1>Utilisateur :</h1>
                 <input type="text" name="userdb" id="userdb" placeholder="Nom ?" class="form-control"/>
-                <input type="text" name="user" id="aliasdb" placeholder="Surnom ?" class="form-control"/>
+                <input type="text" name="user" id="prenomdb" placeholder="Prenom ?" class="form-control"/>
+                <input type="text" name="adresse" id="adressedb" placeholder="Adresse ?" class="form-control"/>
+                <input type="text" name="num" id="numdb" placeholder="Numéro de téléphone ?" class="form-control"/>
                 <input type="text" name="email" id="emaildb" placeholder="Email ?" class="form-control"/>
-                <input type="password" name="user" id="passwddb" placeholder="Mot de passe ?" class="form-control"/>
+                <input type="password" name="passwd" id="passwddb" placeholder="Mot de passe ?" class="form-control"/>
             </div>
             <div class="btn-group" role="group">
                 <button type="button" id="get-bdd" class="btn btn-default">Lire</button>
@@ -67,9 +69,13 @@
 				$("#get-bdd").click(function () {getUserBdd($('#userdb').val(), $('#aliasdb').val())});
 				$("#post-bdd").click(function () {postUserBdd(
 				    $('#userdb').val(),
-				    $('#aliasdb').val(),
+				    $('#prenomdb').val(),
 				    $('#emaildb').val(),
-				    $('#passwddb').val())});
+				    "user",
+				    $('#passwddb').val(),
+				    $('#adressedb').val(),
+				    $('#numdb').val()
+				    )});
 				$("#list-bdd").click(function () {listUsersBdd()});
 				$("#read-forall").click(function () {getForAll()});
 				$("#read-byannotation").click(function () {getByAnnotation()});

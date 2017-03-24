@@ -1,6 +1,4 @@
 package fr.iutinfo.skeleton.api;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import org.skife.jdbi.v2.sqlobject.Bind;
@@ -14,14 +12,14 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 public interface MonUserDao {
 	
 	@SqlUpdate("Create table users(nom varchar(100), prenom varchar(100), mail varchar(1000) primary key, role varchar(100),"
-	  	+ " mdp varchar(100) , adresse varchar(1000),   varchar(10), nbr_cmd Integer)")
+	  	+ " mdp varchar(100) , adresse varchar(1000), numTel varchar(10), nbrCmd Integer)")
 	void createUserTable();
 	
     @SqlUpdate("Drop table if exists users")
     void dropUserTable();
 	  
-	@SqlUpdate("Insert into users(nom,prenom,mail,role,mdp,adresse,num_tel,nbr_cmd) values "
-		+ "(:nom, :prenom , :mail , :role , :mdp , :adresse, :num_tel, :nbr_cmd)")
+	@SqlUpdate("Insert into users(nom,prenom,mail,role,mdp,adresse,numTel,nbrCmd) values "
+		+ "(:nom, :prenom , :mail , :role , :mdp , :adresse, :numTel, :nbrCmd)")
     @GetGeneratedKeys
     int insertUsers(@BindBean() MonUser user);
 	
@@ -36,7 +34,7 @@ public interface MonUserDao {
 	@RegisterMapperFactory(BeanMapperFactory.class)
 	MonUser findByMail(@Bind("mail") String mail);
 
-    @SqlQuery("Select * from users order by nbr_cmd")
+    @SqlQuery("Select * from users order by nbrCmd")
     @RegisterMapperFactory(BeanMapperFactory.class)
     List<MonUser> orderByCmd();
 	
