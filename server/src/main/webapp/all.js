@@ -62,9 +62,20 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 			"nbrCmd" : nbrCmd
 		}),
 		success : function(data, textStatus, jqXHR) {
+			alert("Vous êtes enregistré.");
+			$("#page-accueil").hide();
+	        $("#page-menu").hide();
+	        $("#page-contact").hide();
+	        $("#page-admin").hide();
+	        $("#page-add").show();
+	        $("#page-connexion").hide();
+	        $("#page-inscription").hide();
+	        $("#page-mentions-legales").hide();
+	        $("#panier").hide();
 			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
+			alert("Informations manquantes");
 			console.log('postUser error: ' + textStatus);
 		}
 	});
