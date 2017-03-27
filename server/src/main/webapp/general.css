@@ -91,7 +91,7 @@ h3{
 
 h4{
 	text-align:left;
-	color:#803315;
+	color:white;
 }
 
 
@@ -196,7 +196,7 @@ ul{
 	display:inline-block;
 	margin:10px;
 	padding:10px;
-	font-family: 'Shadows Into Light Two', cursive;
+	font-family: 'Pangolin', cursive;
 	overflow:auto;
 }
 
@@ -209,7 +209,7 @@ ul{
 	margin:10px;
 	padding:10px;
 	display:inline-block;
-	font-family: 'Shadows Into Light Two', cursive;
+	font-family: 'Pangolin', cursive;
 	overflow:auto;
 }
 
@@ -220,7 +220,7 @@ ul{
 	position:relative;
 	margin:auto;
 	padding:10px;
-	font-family: 'Shadows Into Light Two', cursive;
+	font-family: 'Pangolin', cursive;
 	overflow:auto;
 }
 
@@ -242,6 +242,10 @@ ul{
 	content:'€';	
 }
 
+#page-menu .petit-prix:after{ 
+	content:'€';	
+}
+
 .petit-nom{
 	display:inline-block;
 	width:75%;
@@ -258,7 +262,6 @@ ul{
 
 /****FIN MENUS****/
 /****DEBUT SLIDESHOW****/
-
 #slideshow {
     float: left;
 	position: relative;
@@ -276,12 +279,10 @@ ul{
 }
  
 #descriptionResto{
-    
     font-size: 20px;    
     margin: 0 40 40 500;
     font-family: Georgia, sans-serif;
-    line-height: 35px;
-    
+    line-height: 35px;   
 }
 
 
@@ -393,224 +394,8 @@ ul{
 }
 
 
-
-
-#timeline {
-	position: absolute;
-	background: #999;
-	bottom: 15px;
-	left: 15px;
-	height: 1px;
-	background: rgb(214,98,13);
-	background: rgba(214,98,13,.8);
-	width: 0;
-	/* fonction d'animation */
-	animation: timeliner 20s infinite;
-}
-
 @keyframes figcaptionner {
 	0%, 25%, 50%, 75%, 100%						{ bottom: -55px;	}
 	5%, 20%, 30%, 45%, 55%, 70%, 80%, 95%		{ bottom: 5px;		}
 }
-<<<<<<< HEAD
-
-#page-connexion{
-    height: 100%;
-    max-height: 480px;
-    
-}
-
-#page-menu{
-    height: 100%;
-}
-
-
-html{
-    background-image: url(images/bbq.jpg);
-    background-size: cover;
-    
-
-}
-
-body{
-    background-color: white;
-	text-align:center;
-	width:800px;    
-	border:2px solid black;
-	margin:auto; /** met le body au milieu de la page **/
-    overflow-y: scroll;
-}
-
-a{	
-	color:black;           /** ne met pas en violet   **/
-    text-decoration:none;  /** enleve le soulignement **/
-    cursor:  pointer;
-}
-
-header .titre{
-	width:800px;       
-}
-
-nav a{
-    padding-right: 20px; 
-    padding-left:20px;        
-}
-
-nav{
-    
-    background-color: #D4886A;
-    text-align: center;
-    font-size: 30px;
-    font-variant:small-caps;
-    border-top:4px solid #803315;
-    margin-bottom: 20px;
-}
-
-nav a:hover{
-	background-color:#FFC2AA;  /** effet changement de couleur quand passage souris **/	
-}
-
-aside{
-	height:30px;
-	width:130px;
-	background-color:#D4886A;	
-	border-radius:0px 50px 50px 0px;   /** met l'arrondi sur la droite **/
-	font-size:22px;
-	position:absolute;
-	margin-left:802px;                 /** +2px ne chevauche pas la bordure **/
-	/** margin-top:0px;  ne semble pas etre utile**/ 
-	padding:3px;	
-	transition:all 0.5s ease;       /** dégrossit l'effet loupe **/     
-}
-
-aside:hover{
-	width:160px;    
-	transition:all 0.5s ease;             
-}
-
-
-aside#panier{
-	height:70px;
-	width:180px;
-	border-radius:0px;
-	background-color:#803315;
-}
-
-footer{      
-    background-color:#803315;;
-	position:fixed;
-	bottom:0px;
-	width:792px;
-	color:white;
-	text-align:right;
-	padding:5px;
-}
-
-
-h3{     /** pas de h3 dans le code..? **/
-	color: #803315;
-	font-size:18px;
-	font-weight: bold; 
-	margin:0px;
-}
-
-label{
- 	display: inline-block;    
-	width: 100px;
-  	padding: 7px;
-    text-align: left;
-}
-
-.bas{
-	position: fixed;
-	bottom: 70px;
-	left: 44%;
-	/*display: inline-block;
-	margin : auto;*/
-}
-.img-menu{
-	width:150px;
-	height:100px;
-	border:1px solid black;
-	float:left;
-	margin-left:50px;
-	margin-top:25px;
-}
-
-.description-menu{
-	width:400px;
-	height:100px;
-	float:left;	
-    margin: 25 50 0 50;
-	overflow:auto;  /* met un scroll quand texte depasse  */
-	text-align:justify;
-}
-
-.prix-menu{
-	background-image:url(http://icons.iconarchive.com/icons/icons8/ios7/64/Ecommerce-Price-Tag-icon.png);
-	background-repeat: :no-repeat;
-	width:64px;
-	height:40px;
-	position:absolute;
-	margin-top:30px;
-	padding-top:24px;
-	font-weight:bold;
-}
-
-#boissons{
-	text-align:left;
-	width:350px;
-	margin-left:70px;
-	float:left;
-}
-
-#desserts{
-	text-align:left;
-	float:right;
-	margin-right:70px;
-	width:300px;
-}
-
-p{
-    line-height: 30px;
-}
-
-legend{
-    margin-bottom: 30px;
-}
-
-#page-add, #page-inscription, #page-connexion{
-    padding-top: 40px;
-}
-
-#page-add label{
-    text-align: right;
-    width: 80px;
-    padding-right: 20px;    
-}
-
-
-#mettre-image{
-    padding-left: 84px;    
-}
-
-#prix{
-    width: 50px;  
-    margin-right: 120px;
-}
-
-#map {
-	height: 50%;
-	width: 45%;
-}
-
-#logo {
-    position: absolute;
-    margin-left: -455;
-    margin-top: -234;
-    width: 230;
-    height: 165;
-}
-=======
 /***FIN SLIDESHOW***/
->>>>>>> f453a9dbf6cbf3a2d2b3321dcfec3630dee580ed

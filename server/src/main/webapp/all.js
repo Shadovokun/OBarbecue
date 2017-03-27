@@ -168,14 +168,23 @@ function afficheListUsers(data) {
 	$("#reponse").html(html);
 }
 
+
 function afficheListProduits(data) {
-	var sandwich = "";
-	var accompagnement = "";
-	var boisson = "";
-	var salade = "";
-	var dessert = "";
-	var aEmporter = "";
-	var assiette = "";
+	$('#menu-assiette').empty();
+	$('#menu-emporter').empty();
+	$('#menu-sandwich').empty();
+	$('#menu-accompagnement').empty();
+	$('#menu-boisson').empty();
+	$('#menu-salade').empty();
+	$('#menu-dessert').empty();
+	
+	var sandwich = "<h2>Sandwich</h2>";
+	var accompagnement = "<h2>Accompagnement</h2>";
+	var boisson = "<h2>Boissons</h2>";
+	var salade = "<h2>Salades</h2>";
+	var dessert = "<h2>Desserts</h2>";
+	var aEmporter = "<h2>A Emporter</h2>";
+	var assiette = "<h2>Sur place</h2>";
 	
 	for(var i = 0 ; i < data.length ; i++){
 		if(data[i].type === "assiette"){
