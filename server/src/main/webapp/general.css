@@ -3,26 +3,20 @@ ul{
     float: left;
 }
 
-.jourSemaine{
-    font-weight: bold;
-}
-
 #coord{
-    padding-left: 150px;
-    margin-left: 30%;
-    line-height: 35px;
+    width: 200px;
+    position: absolute;
+    margin: 0 0 0 300;
 }
 
 
 #horaires{
-    height: 200px;
-    margin:  180 0 0 50;
-    color: black;
+    position: absolute;
+    margin-top: 170px;
     text-align: left;  
-    
-    
-    
+
 }
+
 
 #slideshow {
     float: left;
