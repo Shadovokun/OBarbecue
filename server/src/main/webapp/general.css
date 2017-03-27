@@ -44,7 +44,7 @@ nav a:hover{
 
 aside{
 	height:30px;
-	width:130px;
+	width:150px;
 	background-color:#D4886A;	
 	border-radius:0px 50px 50px 0px;   /** met l'arrondi sur la droite **/
 	font-size:22px;
@@ -55,7 +55,7 @@ aside{
 }
 
 aside:hover{
-	width:160px;    
+	width:170px;    
 	transition:all 0.5s ease;             
 }
 
@@ -245,7 +245,7 @@ ul{
     font-weight:bold;
     position:absolute;
     margin-left:150px;
-    margin-top:-35px;
+    margin-top:-20px;
     width:50px;
 }
 
@@ -255,6 +255,12 @@ ul{
 
 #page-menu .petit-prix:after{ 
 	content:'€';	
+}
+
+.titre-menu{
+	text-align:left;
+	color:white;
+	padding:2px;
 }
 
 .petit-nom{

@@ -198,13 +198,13 @@ function afficheListProduits(data) {
 	
 	for(var i = 0 ; i < data.length ; i++){
 		if(data[i].type === "assiette"){
-			assiette+= "<h4>Assiette</h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			assiette+= "<div class=\"titre-menu\">" + data[i].nom + "</div> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "aEmporter"){
-			aEmporter+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			aEmporter+= "<h4>" + data[i].nom + "</h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "sandwich"){
 			sandwich+= "<h4> Sandwich </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "accompagnement"){
-			accompagnement+= "<p>" + data[i].description + "</p>" ;
+			accompagnement+= "<p>" + data[i].nom + "</p>" ;
 		} if(data[i].type === "boisson"){
 			boisson+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
 		} if(data[i].type === "salade"){
@@ -224,10 +224,14 @@ function afficheListProduits(data) {
 	$('#menu-dessert').append(dessert);
 }
 
+var listeProduits = new Array(); 
+var somme = 0;
 
-function ajouterProduit(data){
+/*function ajouterProduit(var produit, var prix){
+	somme+= prix;
+	listeProduits.push(produit);
 	alert("ok");
-}
+}*/
 
 function afficherPanier(data){
 	
