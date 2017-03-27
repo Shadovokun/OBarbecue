@@ -68,6 +68,7 @@ public class Produit {
     	this.nom = dto.getNom();
     	this.description = dto.getDescription();
     	this.prix = dto.getPrix();
+    	this.cheminImg = dto.getCheminImg();
     	this.type = dto.getType();
     }
 	
@@ -75,6 +76,7 @@ public class Produit {
     	ProduitDto dto = new ProduitDto();
     	dto.setNom(this.nom);
     	dto.setDescription(this.description);
+    	dto.setCheminImg(this.cheminImg);
     	dto.setPrix(this.prix);
     	dto.setType(this.type);
         return dto;
