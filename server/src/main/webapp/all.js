@@ -149,25 +149,38 @@ function afficheListUsers(data) {
 }
 
 function afficheListProduits(data) {
-	var code2 = "";
-	var code3 = "";
-	var code = "<tr>";
-	for(var i = 0 ; i < data.length ; i++){
-		code+="<td>"+data[i].nom+"</td>";
-		code+="<td>"+data[i].description+"</td>";
-		code+="<td>"+data[i].prix+"</td>";
-		code+="</tr>";
-	}
+	var sandwich = "";
+	var accompagnement = "";
+	var boisson = "";
+	var salade = "";
+	var dessert = "";
+	var aEmporter = "";
+	var assiette = "";
 	
 	for(var i = 0 ; i < data.length ; i++){
 		if(data[i].type === "assiette"){
-			code2+= "<h4> Assiette </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			assiette+= "<h4> Assiette </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "aEmporter"){
-			code3+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			aEmporter+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "sandwich"){
+			sandwich+= "<h4> Sandwich </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "accompagnement"){
+			accompagnement+= "<p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "boisson"){
+			boisson+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
+		} if(data[i].type === "salade"){
+			salade+= "<h4> Salade </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "dessert"){
+			dessert+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
 		}
 	}
 	
 
-	$('#table').append(code);
-	$('#menu-assiette').append(code2);
+	$('#menu-assiette').append(assiette);
+	$('#menu-emporter').append(aEmporter);
+	$('#menu-sandwich').append(sandwich);
+	$('#menu-accompagnement').append(accompagnement);
+	$('#menu-boisson').append(boisson);
+	$('#menu-salade').append(salade);
+	$('#menu-dessert').append(dessert);
 }
