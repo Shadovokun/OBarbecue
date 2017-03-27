@@ -365,3 +365,32 @@ legend{
 #table, tr, td{
 	border: 1px solid black;
 }
+
+
+#menu-assiette{
+	width:300px;
+	background-image:url(images/ardoise1.jpg);
+	position:relative;
+}
+
+#menu-assiette .prix{    
+    background-color: #D4886A;
+    border-radius:50px;
+    position:absolute;
+    margin-left:200px;
+    margin-top:-30px;
+    width:50px;
+}
+
+h2{
+	padding-left:50px;
+	padding-right:50px;
+	background-color:#803315;
+	
+}
+
+h4{
+	text-align:left;
+	color:#803315;
+}
+

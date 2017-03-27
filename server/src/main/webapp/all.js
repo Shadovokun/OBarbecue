@@ -149,6 +149,8 @@ function afficheListUsers(data) {
 }
 
 function afficheListProduits(data) {
+	var code2 = "";
+	var code3 = "";
 	var code = "<tr>";
 	for(var i = 0 ; i < data.length ; i++){
 		code+="<td>"+data[i].nom+"</td>";
@@ -157,5 +159,15 @@ function afficheListProduits(data) {
 		code+="</tr>";
 	}
 	
+	for(var i = 0 ; i < data.length ; i++){
+		if(data[i].type === "assiette"){
+			code2+= "<h4> Assiette </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "aEmporter"){
+			code3+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		}
+	}
+	
+
 	$('#table').append(code);
+	$('#menu-assiette').append(code2);
 }
