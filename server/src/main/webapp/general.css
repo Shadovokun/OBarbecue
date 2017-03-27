@@ -1,28 +1,263 @@
+html{
+    background-image: url(images/bbq.jpg);
+    background-size: cover;
+}
+
+body{
+    background-color: white;
+	text-align:center;
+	width:800px;  
+	height:auto;  
+	min-height:900px;
+	border:2px solid black;
+	margin:auto; /** met le body au milieu de la page **/
+    overflow-y: scroll;
+}
+
+a{	
+	color:black;           /** ne met pas en violet   **/
+    text-decoration:none;  /** enleve le soulignement **/
+    cursor:  pointer;
+}
+
+header .titre{
+	width:800px;       
+}
+
+nav a{
+    padding-right: 20px; 
+    padding-left:20px;        
+}
+
+nav{
+    background-color: #D4886A;
+    text-align: center;
+    font-size: 30px;
+    font-variant:small-caps;
+    border-top:4px solid #803315;
+    margin-bottom: 20px;
+}
+
+nav a:hover{
+	background-color:#FFC2AA;  /** effet changement de couleur quand passage souris **/	
+}
+
+aside{
+	height:30px;
+	width:130px;
+	background-color:#D4886A;	
+	border-radius:0px 50px 50px 0px;   /** met l'arrondi sur la droite **/
+	font-size:22px;
+	position:absolute;
+	margin-left:802px;                 /** +2px ne chevauche pas la bordure **/
+	padding:3px;	
+	transition:all 0.5s ease;       /** dégrossit l'effet loupe **/     
+}
+
+aside:hover{
+	width:160px;    
+	transition:all 0.5s ease;             
+}
+
+aside#panier{
+	height:70px;
+	width:180px;
+	border-radius:0px;
+	background-color:#803315;
+}
+
+footer{      
+    background-color:#803315;;
+	position:fixed;
+	bottom:0px;
+	width:792px;
+	color:white;
+	text-align:right;
+	padding:5px;
+}
+
+h2{
+	text-align:center;
+	margin-top:0px;
+	background-color:white;	
+}
+
+h3{  
+	color: #803315;
+	font-size:18px;
+	font-weight: bold; 
+	margin:0px;
+}
+
+h4{
+	text-align:left;
+	color:#803315;
+}
+
+
+p{
+    line-height: 30px;
+}
+
+legend{
+    margin-bottom: 30px;
+}
+
+label{
+ 	display: inline-block;    
+	width: 100px;
+  	padding: 7px;
+    text-align: left;
+}
+
 ul{
     list-style-type: none;
     float: left;
 }
 
-.jourSemaine{
-    font-weight: bold;
-}
-
 #coord{
-    padding-left: 150px;
-    margin-left: 30%;
-    line-height: 35px;
+    width: 200px;
+    position: absolute;
+    margin: 0 0 0 300;
 }
 
 
 #horaires{
-    height: 200px;
-    margin:  180 0 0 50;
-    color: black;
+    position: absolute;
+    margin-top: 170px;
     text-align: left;  
-    
-    
-    
+
 }
+
+
+.bas{
+	position: fixed;
+	bottom: 70px;
+	left: 44%;
+}
+
+.img-menu{
+	width:150px;
+	height:100px;
+	border:1px solid black;
+	float:left;
+	margin-left:50px;
+	margin-top:25px;
+}
+
+.description-menu{
+	width:400px;
+	height:100px;
+	float:left;	
+    margin: 25 50 0 50;
+	overflow:auto;  /* met un scroll quand texte depasse  */
+	text-align:justify;
+}
+
+#page-add, #page-inscription, #page-connexion{
+    padding-top: 40px;
+}
+
+#page-add label{
+    text-align: right;
+    width: 80px;
+    padding-right: 20px;    
+}
+
+#mettre-image{
+    padding-left: 84px;    
+}
+
+#prix{
+    width: 50px;  
+    margin-right: 120px;
+}
+
+#map {
+	height: 50%;
+	width: 45%;
+}
+
+#table, tr, td{
+	border: 1px solid black;
+}
+
+/*****PAGE DES MENUS*****/
+#page-menu p{
+	margin:0px;
+	color:white;
+}
+
+#menu-assiette, #menu-emporter, #menu-sandwich{
+	width:220px;
+	height:400px;
+	background-image:url(images/ardoise1.jpg);
+	position:relative;
+	display:inline-block;
+	margin:10px;
+	padding:10px;
+	font-family: 'Shadows Into Light Two', cursive;
+	overflow:auto;
+}
+
+#menu-accompagnement, #menu-boisson, #menu-salade{
+	width:220px;
+	height:320px;
+	min-height:250px;
+	background-image:url(images/ardoise1.jpg);
+	position:relative;
+	margin:10px;
+	padding:10px;
+	display:inline-block;
+	font-family: 'Shadows Into Light Two', cursive;
+	overflow:auto;
+}
+
+#menu-dessert{
+	width:450px;
+	height:200px;
+	background-image:url(images/ardoise1.jpg);
+	position:relative;
+	margin:auto;
+	padding:10px;
+	font-family: 'Shadows Into Light Two', cursive;
+	overflow:auto;
+}
+
+#menu-dessert > h4{
+	display:inline-block;
+}
+
+#page-menu .prix{    
+    background-color:white;
+    border-radius:50px;
+    font-weight:bold;
+    position:absolute;
+    margin-left:150px;
+    margin-top:-35px;
+    width:50px;
+}
+
+#page-menu .prix:after{ 
+	content:'€';	
+}
+
+.petit-nom{
+	display:inline-block;
+	width:75%;
+	text-align:left;
+	font-size:20px;
+	font-weight:bold;
+}
+
+.petit-prix{
+	display:inline-block;
+	width:5%;
+	text-align:right;
+}
+
+/****FIN MENUS****/
+/****DEBUT SLIDESHOW****/
 
 #slideshow {
     float: left;
@@ -177,6 +412,7 @@ ul{
 	0%, 25%, 50%, 75%, 100%						{ bottom: -55px;	}
 	5%, 20%, 30%, 45%, 55%, 70%, 80%, 95%		{ bottom: 5px;		}
 }
+<<<<<<< HEAD
 
 #page-connexion{
     height: 100%;
@@ -375,3 +611,6 @@ legend{
     width: 230;
     height: 165;
 }
+=======
+/***FIN SLIDESHOW***/
+>>>>>>> f453a9dbf6cbf3a2d2b3321dcfec3630dee580ed

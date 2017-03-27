@@ -3,6 +3,7 @@
 <HEAD>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet">
     <link rel="stylesheet" href="general.css">
     <script src='jquery-2.1.3.js'></script>
     <script src='all.js'></script>
@@ -40,6 +41,8 @@
             $("#page-connexion").hide();
             $("#page-inscription").hide();
             $("#page-mentions-legales").hide();
+
+            listProduitsBdd();
         }); 
 
         $("#contact").click(function() {
@@ -110,15 +113,12 @@
 
         $("#inscr").click(function(){
             postUserBdd($("#nom").val(), $("#prenom").val(), $("#email").val(), "user", $("#pass").val(), 
-                $("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val());
-            $("#reponse-inscription").html("C'est enregistré !");
-            
-            
+                $("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val());          
         });
 
         $("#addMenu").click(function(){
             //alert($("#nomMenu").val() + " " + $("#descriptionAdd").val() + " " + parseInt($("#prix").val()) + " " + fileValue);
-            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null);
+            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null, $("#type").val());
             alert("askip ok");
         })
 
@@ -136,10 +136,6 @@
 
    </aside>
 
-   <aside style="margin-top:50px;">
-       <a id="inscription">S'inscrire</a>
-   </aside>
-   
    <aside style="margin-top:50px;">
        <a id="inscription">S'inscrire</a>
    </aside>
@@ -188,7 +184,6 @@
 </div>
 </div>
 
-<span class="timeline"></span>
 </section>
 
 <section id="descriptionResto">
@@ -198,17 +193,18 @@
 
 <section id="horaires">
     <ul>
-        <li><span style="padding-right: 46px;" class="jourSemaine">Lundi:</span>11h - 23h</li>
-        <li><span style="padding-right: 42px;" class="jourSemaine">Mardi:</span>11h - 23h</li>
-        <li><span style="padding-right: 23px;" class="jourSemaine">Mercredi:</span>11h - 23h</li>
-        <li><span style="padding-right: 48px;" class="jourSemaine">Jeudi:</span>11h - 23h</li>
-        <li><span style="padding-right: 25px;" class="jourSemaine">Vendredi:</span>11h - 23h</li>
-        <li><span style="padding-right: 34px;" class="jourSemaine">Samedi:</span>11h - 23h</li>
-        <li><span style="padding-right: 15px;" class="jourSemaine">Dimanche:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 46px; font-weight: bold;">Lundi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 42px; font-weight: bold;" >Mardi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 23px; font-weight: bold;" >Mercredi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 48px; font-weight: bold;" >Jeudi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 25px; font-weight: bold;" >Vendredi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 34px; font-weight: bold;" >Samedi:</span>11h - 23h</li>
+        <li class="jourSemaine"><span style="padding-right: 15px; font-weight: bold;" >Dimanche:</span>11h - 23h</li>
     </ul>
     <br/>
     <br/>
-    <p id="coord">Numéro: 06.06.06.06.06<br/>Adresse: Tourcoing</p>
+    <p id="coord"><span style="padding-right: 26px; font-weight: bold;">Numéro:</span> 06.06.06.06.06<br/>
+        <span style="padding-right: 26px; font-weight: bold;">Adresse:</span> Tourcoing</p>
 </section>
 
 <br /> <br />
@@ -218,49 +214,28 @@
 <div id="page-menu">
 
     <section>
-        <img src="http://s1.static-footeo.com/uploads/ajaauchy/news/barbecue__nod2kb.jpg" alt="menu1" class="img-menu"/> 
-        <div class="description-menu"> <h3>Nom du menu</h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus. </div>
-            <div class="prix-menu">9 € </div>
-            <div style="clear:both"> </div>
-        </section>
+    
+       
+<div id="menu-assiette"><h2>Sur Place</h2></div>
+<div id="menu-emporter"><h2 style="font-size:20px">A Emporter</h2></div>
+<div id="menu-sandwich"><h2>Sandwichs</h2></div>
 
-        <section>
-            <img src="http://today.wecook.fr/wp-content/uploads/2014/07/brochettes-sur-barbecue.jpg" alt="menu1" class="img-menu"/> 
-            <div class="description-menu"> <h3>Nom du menu</h3>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.  </div>
-                <div class="prix-menu">9 € </div>
-                <div style="clear:both"> </div>
-            </section>
+<br /> 
 
+<div id="menu-accompagnement"><h2>Accompagnements</h2></div>
+<div id="menu-boisson"><h2>Boissons</h2></div>
+<div id="menu-salade"><h2>Salades</h2></div>
 
+<br />
 
-            <br/> <br/>
+<div id="menu-dessert"><h2>Desserts</h2></div>
+    
 
-            <section>
-             <div id="boissons">
-                <h3>Carte des boissons </h3>  
-                <ul>
-                    <li> Coca-cola </li>
-                    <li> Fanta</li>
-                    <li> Truc</li>
-                    <li> Machin</li>
-                    <li> Chouette</li>
-                </ul>     
-            </div>
-
-            <div id="desserts">
-                <h3>Carte des desserts </h3>
-                <ul>
-                    <li> Truc</li>
-                    <li> Machin</li>
-                    <li> Chouette</li>
-                </ul>
-            </div>
-
-            <div style="clear:both;"> </div>
-        </section>
-
+ </section>
+ <br />
+ <br /> <br />
+ <br /> <br />
+ <br />
     </div>
     
     
@@ -269,16 +244,16 @@
            <div id="adresse">
             <h3>ÔBarbecue</h3>
             <p>
-                00 rue du xxxxxx <br />
-                59000 Lille
+                43, rue de blanc seau <br />
+                59200 Tourcoing
             </p>
         </div>
 
         <div id="telephone">
             <h3>Contact </h3>
             <p>
-                mail@contact.fr<br />
-                00.00.00.00.00
+                ôbarbecue.resto@yahoo.com<br />
+                06.84.82.70.12
             </p>
         </div>
 
@@ -375,7 +350,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 </div>
 
 <div id="page-inscription">
-    <div id="reponse-inscription"></div>
     <form method="post">
         <fieldset class="Inscription">
             <legend>Inscription</legend>
@@ -425,21 +399,27 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     <br />
 </div>
 
-<div id="page-admin">       
+<div id="page-admin">    
 
     <section>
-        <img src="http://s1.static-footeo.com/uploads/ajaauchy/news/barbecue__nod2kb.jpg" alt="menu1" class="img-menu"/> 
-        <div class="description-menu"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus. </div>
-        <div class="prix-menu">9 € </div>
-        <div style="clear:both"> </div>
-    </section>
+    
+       
+<div id="menu-assiette"><h2>Sur Place</h2></div>
+<div id="menu-emporter"><h2 style="font-size:20px">A Emporter</h2></div>
+<div id="menu-sandwich"><h2>Sandwichs</h2></div>
 
-    <section>
-        <img src="http://today.wecook.fr/wp-content/uploads/2014/07/brochettes-sur-barbecue.jpg" alt="menu1" class="img-menu"/> 
-        <div class="description-menu"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend scelerisque malesuada. Maecenas dapibus est nec tellus commodo, sed tristique nunc porta. Morbi non massa placerat, scelerisque erat at, molestie risus.  </div>
-        <div class="prix-menu">9 € </div>
-        <div style="clear:both"> </div>
-    </section>
+<br /> 
+
+<div id="menu-accompagnement"><h2>Accompagnements</h2></div>
+<div id="menu-boisson"><h2>Boissons</h2></div>
+<div id="menu-salade"><h2>Salades</h2></div>
+
+<br />
+
+<div id="menu-dessert"><h2>Desserts</h2></div>
+    
+
+ </section>
 
     <div class="bas">
         <input type="submit" value="Valider"/>
@@ -456,8 +436,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             <label for="nom">Nom : </label>
             <input id="nomMenu" name="nom" type="text" autofocus/><br />
             <label for="Description">Description : </label>
-            <input id="descriptionAdd" name="description" type="text" /><br />          
-            <label for="prix">prix : </label>
+            <input id="descriptionAdd" name="description" type="text" /><br />    
+            <label for="pays">Type :</label>
+            <select name="type" id="type">
+           		<option value="assiette">Assiette</option>
+          		<option value="aEmporter">A emporter</option>
+           		<option value="sandwich">Sandwich</option>
+           		<option value="accompagnement">Accompagnement</option>
+           		<option value="boisson">Boisson</option>
+           		<option value="salade">Salade</option>
+           		<option value="dessert">Dessert</option>
+       		</select>   <br />   
+            <label for="prix">Prix : </label>
             <input id="prix" name="prix" type="number" /> €<br />
             <br /><br />
 

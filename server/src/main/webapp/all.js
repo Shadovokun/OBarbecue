@@ -62,20 +62,30 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 			"nbrCmd" : nbrCmd
 		}),
 		success : function(data, textStatus, jqXHR) {
+			alert("Vous êtes enregistré.");
+			$("#page-accueil").hide();
+	        $("#page-menu").hide();
+	        $("#page-contact").hide();
+	        $("#page-admin").hide();
+	        $("#page-add").show();
+	        $("#page-connexion").hide();
+	        $("#page-inscription").hide();
+	        $("#page-mentions-legales").hide();
+	        $("#panier").hide();
 			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
+			alert("Informations manquantes");
 			console.log('postUser error: ' + textStatus);
 		}
 	});
 }
 
-function postProduitBdd(nom, desc, prix, img) {
-    postProduitGeneric(nom, desc, prix, img, "v1/produit/");
+function postProduitBdd(nom, desc, prix, img, type) {
+    postProduitGeneric(nom, desc, img, prix, type, "v1/produit/");
 }
 
-function postProduitGeneric(nom, desc, prix, img, url) {
-	console.log("postProduitGeneric " + url)
+function postProduitGeneric(nom, desc, img, prix, type, url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -85,14 +95,15 @@ function postProduitGeneric(nom, desc, prix, img, url) {
 			"nom" : nom,
 			"description" : desc,
 			"cheminImg" : img,
-			"prix" : prix
+			"prix" : prix,
+			"type" : type
 			
 		}),
 		success : function(data, textStatus, jqXHR) {
 			afficheProduit(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postUser error: ' + textStatus);
+			console.log('postProduit error: ' + textStatus);
 		}
 	});
 }
@@ -106,9 +117,19 @@ function listUsersBdd() {
     listUsersGeneric("v1/user/");
 }
 
+function listProduitsBdd() {
+    listProduitsGeneric("v1/produit/");
+}
+
 function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
 		afficheListUsers(data)
+	});
+}
+
+function listProduitsGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListProduits(data)
 	});
 }
 
@@ -125,4 +146,41 @@ function afficheListUsers(data) {
 	}
 	html = html + "</ul>";
 	$("#reponse").html(html);
+}
+
+function afficheListProduits(data) {
+	var sandwich = "";
+	var accompagnement = "";
+	var boisson = "";
+	var salade = "";
+	var dessert = "";
+	var aEmporter = "";
+	var assiette = "";
+	
+	for(var i = 0 ; i < data.length ; i++){
+		if(data[i].type === "assiette"){
+			assiette+= "<h4> Assiette </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "aEmporter"){
+			aEmporter+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "sandwich"){
+			sandwich+= "<h4> Sandwich </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "accompagnement"){
+			accompagnement+= "<p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "boisson"){
+			boisson+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
+		} if(data[i].type === "salade"){
+			salade+= "<h4> Salade </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+		} if(data[i].type === "dessert"){
+			dessert+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
+		}
+	}
+	
+
+	$('#menu-assiette').append(assiette);
+	$('#menu-emporter').append(aEmporter);
+	$('#menu-sandwich').append(sandwich);
+	$('#menu-accompagnement').append(accompagnement);
+	$('#menu-boisson').append(boisson);
+	$('#menu-salade').append(salade);
+	$('#menu-dessert').append(dessert);
 }

@@ -7,15 +7,25 @@ public class Produit {
 	private String nom;
 	private String description;
 	private String cheminImg;
+	private String type;
 	private double prix;
 	
-	public Produit(String nom, String description, String cheminImg, double prix){
+	public Produit(String nom, String description, String cheminImg, double prix, String type){
 		this.nom = nom;
 		this.description = description;
 		this.cheminImg = cheminImg;
 		this.prix = prix;
+		this.type = type;
 	}
 	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public Produit(){}
 
 	public String getNom() {
@@ -58,13 +68,17 @@ public class Produit {
     	this.nom = dto.getNom();
     	this.description = dto.getDescription();
     	this.prix = dto.getPrix();
+    	this.cheminImg = dto.getCheminImg();
+    	this.type = dto.getType();
     }
 	
     public ProduitDto convertToDto() {
     	ProduitDto dto = new ProduitDto();
     	dto.setNom(this.nom);
     	dto.setDescription(this.description);
+    	dto.setCheminImg(this.cheminImg);
     	dto.setPrix(this.prix);
+    	dto.setType(this.type);
         return dto;
     }
 	

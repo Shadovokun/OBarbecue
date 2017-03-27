@@ -7,6 +7,15 @@ public class ProduitDto implements Principal{
 	private String nom;
 	private String description;
 	private String cheminImg;
+	private String type;
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	private double prix;
 	
 	@Override
