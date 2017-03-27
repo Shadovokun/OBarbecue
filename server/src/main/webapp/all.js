@@ -33,8 +33,18 @@ function getSecure(url) {
 	    	   $("#connexion").hide();
 	    	   $("#inscription").hide();
 	    	   $("#deconnexion").show();
+    		   alert("Bonjour " + data.nom + " " + data.prenom);
 	    	   if (data.role =="user") {
 	    		   $("#panier").show();
+	    		   $("#page-accueil").hide();
+	               $("#page-menu").show();
+	               $("#page-contact").hide();
+	               $("#page-admin").hide();
+	               $("#page-add").hide();
+	               $("#page-connexion").hide();
+	               $("#page-inscription").hide();
+	               $("#page-mentions-legales").hide();
+	               listProduitsBdd();
 	    		   //Afficher trucs pour user et cacher le reste
 	    	   } else if (data.role == "admin") {
 	    		   $("#page-accueil").hide();
@@ -83,11 +93,11 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 		}),
 		success : function(data, textStatus, jqXHR) {
 			alert("Vous êtes enregistré.");
-			$("#page-accueil").hide();
+			$("#page-accueil").show();
 	        $("#page-menu").hide();
 	        $("#page-contact").hide();
 	        $("#page-admin").hide();
-	        $("#page-add").show();
+	        $("#page-add").hide();
 	        $("#page-connexion").hide();
 	        $("#page-inscription").hide();
 	        $("#page-mentions-legales").hide();
