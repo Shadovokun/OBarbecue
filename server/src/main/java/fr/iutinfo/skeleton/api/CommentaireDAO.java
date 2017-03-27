@@ -12,10 +12,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommentaireDAO {
 
-	@SqlUpdate("create table Commentaire (id integer primary key autoincrement,contenu varchar(500), dat varchar(50), mail varchar(50), valide integer, note integer check (note>-1), check (note<6))")
+	@SqlUpdate("create table Commentaire (id INTEGER PRIMARY KEY autoincrement,contenu varchar(1000), dat varchar(50), mail varchar(50), valide integer, note integer check (note>-1), check (note<6))")
     void createCommentaireTable();
 	
-	 @SqlUpdate("insert into Commentaire (id,contenu,dat,mail,valide,note) values (:id, :contenu, :dat, :mail,:valide, :note)")
+	 @SqlUpdate("insert into Commentaire (contenu,dat,mail,valide,note) values (:contenu, :dat, :mail,:valide, :note)")
 	 @GetGeneratedKeys
 	 int insertCommentaire(@BindBean() Commentaire com);
 	 
