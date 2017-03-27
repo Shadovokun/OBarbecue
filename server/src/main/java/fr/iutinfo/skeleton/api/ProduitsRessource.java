@@ -40,6 +40,7 @@ public class ProduitsRessource {
     @POST
     public ProduitDto createProduit(ProduitDto dto) {
         Produit prod = new Produit();
+        prod.initFromDto(dto);
         int id = dao.insertProduit(prod);
         return dto;
     }
