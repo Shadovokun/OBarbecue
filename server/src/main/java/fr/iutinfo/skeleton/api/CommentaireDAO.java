@@ -12,10 +12,10 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommentaireDAO {
 
-	@SqlUpdate("create table Commentaire (id integer primary key autoincrement,contenu varchar(500), dat varchar(50), mail varchar(50), note integer check (note>-1), check (note<6)) ")
+	@SqlUpdate("create table Commentaire (id integer primary key autoincrement,contenu varchar(500), dat varchar(50), mail varchar(50), valide integer, note integer check (note>-1), check (note<6))")
     void createCommentaireTable();
 	
-	 @SqlUpdate("insert into Commentaire (id,contenu,dat,mail,note) values (:id, :contenu, :dat, :mail, :note)")
+	 @SqlUpdate("insert into Commentaire (id,contenu,dat,mail,valide,note) values (:id, :contenu, :dat, :mail,:valide, :note)")
 	 @GetGeneratedKeys
 	 int insertCommentaire(@BindBean() Commentaire com);
 	 
@@ -37,6 +37,10 @@ public interface CommentaireDAO {
 	 @SqlQuery("select * from Commentaire where id = :id")
 	 @RegisterMapperFactory(BeanMapperFactory.class)
 	 Commentaire findById(@Bind("id") int id);
+	 
+	 @SqlQuery("select * from Commentaire where valide = :valide")
+	 @RegisterMapperFactory(BeanMapperFactory.class)
+	 List<Commentaire> allValide(@Bind("valide") int valide);
 
 	 void close();
 }
