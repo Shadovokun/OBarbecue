@@ -367,3 +367,7 @@ legend{
 	height: 50%;
 	width: 45%;
 }
+
+#table, tr, td{
+	border: 1px solid black;
+}

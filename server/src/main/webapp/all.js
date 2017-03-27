@@ -71,11 +71,10 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 }
 
 function postProduitBdd(nom, desc, prix, img) {
-    postProduitGeneric(nom, desc, prix, img, "v1/produit/");
+    postProduitGeneric(nom, desc, img, prix, "v1/produit/");
 }
 
-function postProduitGeneric(nom, desc, prix, img, url) {
-	console.log("postProduitGeneric " + url)
+function postProduitGeneric(nom, desc, img, prix, url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -92,7 +91,7 @@ function postProduitGeneric(nom, desc, prix, img, url) {
 			afficheProduit(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
-			console.log('postUser error: ' + textStatus);
+			console.log('postProduit error: ' + textStatus);
 		}
 	});
 }
@@ -106,9 +105,19 @@ function listUsersBdd() {
     listUsersGeneric("v1/user/");
 }
 
+function listProduitsBdd() {
+    listProduitsGeneric("v1/produit/");
+}
+
 function listUsersGeneric(url) {
 	$.getJSON(url, function(data) {
 		afficheListUsers(data)
+	});
+}
+
+function listProduitsGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListProduits(data)
 	});
 }
 
@@ -125,4 +134,16 @@ function afficheListUsers(data) {
 	}
 	html = html + "</ul>";
 	$("#reponse").html(html);
+}
+
+function afficheListProduits(data) {
+	var code = "<tr>";
+	for(var i = 0 ; i < data.length ; i++){
+		code+="<td>"+data[i].nom+"</td>";
+		code+="<td>"+data[i].description+"</td>";
+		code+="<td>"+data[i].prix+"</td>";
+		code+="</tr>";
+	}
+	
+	$('#table').append(code);
 }
