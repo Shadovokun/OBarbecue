@@ -120,7 +120,7 @@
 
         $("#addMenu").click(function(){
             //alert($("#nomMenu").val() + " " + $("#descriptionAdd").val() + " " + parseInt($("#prix").val()) + " " + fileValue);
-            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null);
+            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null, $("#type").val());
             alert("askip ok");
         })
 
@@ -468,8 +468,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             <label for="nom">Nom : </label>
             <input id="nomMenu" name="nom" type="text" autofocus/><br />
             <label for="Description">Description : </label>
-            <input id="descriptionAdd" name="description" type="text" /><br />          
-            <label for="prix">prix : </label>
+            <input id="descriptionAdd" name="description" type="text" /><br />    
+            <label for="pays">Type :</label>
+            <select name="type" id="type">
+           		<option value="france">Assiette</option>
+          		<option value="espagne">A emporter</option>
+           		<option value="italie">Sandwich</option>
+           		<option value="royaume-uni">Accompagnement</option>
+           		<option value="canada">Boisson</option>
+           		<option value="etats-unis">Salade</option>
+           		<option value="chine">Dessert</option>
+       		</select>   <br />   
+            <label for="prix">Prix : </label>
             <input id="prix" name="prix" type="number" /> €<br />
             <br /><br />
 

@@ -70,11 +70,11 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 	});
 }
 
-function postProduitBdd(nom, desc, prix, img) {
-    postProduitGeneric(nom, desc, img, prix, "v1/produit/");
+function postProduitBdd(nom, desc, prix, img, type) {
+    postProduitGeneric(nom, desc, img, prix, type, "v1/produit/");
 }
 
-function postProduitGeneric(nom, desc, img, prix, url) {
+function postProduitGeneric(nom, desc, img, prix, type, url) {
 	$.ajax({
 		type : 'POST',
 		contentType : 'application/json',
@@ -84,7 +84,8 @@ function postProduitGeneric(nom, desc, img, prix, url) {
 			"nom" : nom,
 			"description" : desc,
 			"cheminImg" : img,
-			"prix" : prix
+			"prix" : prix,
+			"type" : type
 			
 		}),
 		success : function(data, textStatus, jqXHR) {
