@@ -242,6 +242,14 @@ aside:hover{
 	transition:all 0.5s ease;             
 }
 
+
+aside#panier{
+	height:70px;
+	width:180px;
+	border-radius:0px;
+	background-color:#803315;
+}
+
 footer{      
     background-color:#803315;;
 	position:fixed;
