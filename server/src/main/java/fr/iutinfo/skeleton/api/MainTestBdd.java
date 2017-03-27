@@ -34,8 +34,8 @@ public class MainTestBdd {
 		daoProduit.dropProduitsTable();
 		daoProduit.createProduitsTable();
 		System.out.println("PRODUITS :");
-		daoProduit.insertProduit(new Produit("Poulet braisé", "Huuuuum le bon poulet !", "/img/pouletBraise.jpg", 8.50 ));
-		daoProduit.insertProduit(new Produit("Poulet à la mexicaine", "DAT CHICKEN !!", "/img/pouletMexicaine.jpg", 8.50 ));
+		daoProduit.insertProduit(new Produit("Poulet braisé", "Huuuuum le bon poulet !", "/img/pouletBraise.jpg", 8.50, "lol" ));
+		daoProduit.insertProduit(new Produit("Poulet à la mexicaine", "DAT CHICKEN !!", "/img/pouletMexicaine.jpg", 8.50, "lil" ));
 	
 		ArrayList<Produit> list2 = new ArrayList();
 		
