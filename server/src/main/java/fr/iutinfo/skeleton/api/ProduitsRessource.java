@@ -33,7 +33,7 @@ public class ProduitsRessource {
     public ProduitsRessource() throws SQLException {
         if (!tableExist("produits")) {
             dao.createProduitsTable();
-            dao.insertProduit(new Produit("coca","boisson fraiche","img/coca", 2));
+            dao.insertProduit(new Produit("coca","boisson fraiche","img/coca", 2,"boisson"));
         }
     }
     
