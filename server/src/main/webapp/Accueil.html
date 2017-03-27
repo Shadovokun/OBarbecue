@@ -9,11 +9,11 @@
     <script>
     
     $(document).ready(function(){
-        $("#page-accueil").show();
+        $("#page-accueil").hide();
         $("#page-menu").hide();
         $("#page-contact").hide();
         $("#page-admin").hide();
-        $("#page-add").hide();
+        $("#page-add").show();
         $("#page-connexion").hide();
         $("#page-inscription").hide();
         $("#page-mentions-legales").hide();
@@ -116,14 +116,11 @@
             
         });
 
-        var fileValue;
-        document.querySelector('#inputFile').addEventListener('change', function() {
-            fileValue = this.files[0].name;
-        });
-
         $("#addMenu").click(function(){
-           postUserBdd($("#nomMenu").val(), $("#description").val(), $("#prix").val(), fileValue);
-       })
+            //alert($("#nomMenu").val() + " " + $("#descriptionAdd").val() + " " + parseInt($("#prix").val()) + " " + fileValue);
+            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null);
+            alert("askip ok");
+        })
 
     });  
     
@@ -452,19 +449,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 </div>
 <div id="page-add">  
-    <form action="???" method="post">
-        <fieldset class="Inscription">
+    <form method="post">
+        <fieldset>
             <legend>Ajout Menu</legend>
             <label for="nom">Nom : </label>
-            <input id="nom" name="nom" type="text" autofocus/><br />
+            <input id="nomMenu" name="nom" type="text" autofocus/><br />
             <label for="Description">Description : </label>
-            <input id="description" name="description" type="text" /><br />          
-            <label for="prix">prix  (€): </label>
-            <input id="prix" name="prix" type="text" /><br />
-            <label for="img" id="mettre-image">Image : </label>
-            <input id="inputFile" type="file"  onmousedown="return false" onkeydown="return false"  onchange="document.getElementById('input_text_file').value = this.value" /><br /><br />
+            <input id="descriptionAdd" name="description" type="text" /><br />          
+            <label for="prix">prix : </label>
+            <input id="prix" name="prix" type="number" /> €<br />
+            <br /><br />
 
-            <input type="submit" value="Valider"/> 
+            <input id="addMenu" type="button" value="Valider"/> 
             <input type="reset" value="Annuler"/>
         </fieldset>
     </form>  
