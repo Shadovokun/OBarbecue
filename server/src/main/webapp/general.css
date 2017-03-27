@@ -14,7 +14,7 @@ ul{
 }
 
 
-#contact{
+#horaires{
     height: 200px;
     margin:  180 0 0 50;
     color: black;
@@ -189,6 +189,7 @@ body{
     background-color: white;
 	text-align:center;
 	width:800px;
+    height: 100%;
 	border:2px solid black;
 	margin:auto; /** met le body au milieu de la page **/
     overflow-y: scroll;
@@ -251,6 +252,7 @@ footer{
 	padding:5px;
 }
 
+
 h3{     /** pas de h3 dans le code..? **/
 	color: #803315;
 	font-size:18px;
@@ -262,6 +264,7 @@ label{
  	display: inline-block;    
 	width: 100px;
   	padding: 7px;
+    text-align: left;
 }
 
 .bas{
@@ -271,8 +274,6 @@ label{
 	/*display: inline-block;
 	margin : auto;*/
 }
-
-
 .img-menu{
 	width:150px;
 	height:100px;
@@ -314,6 +315,10 @@ label{
 	float:right;
 	margin-right:70px;
 	width:300px;
+}
+
+legend{
+    margin-bottom: 30px;
 }
 
 #page-add, #page-inscription, #page-connexion{
