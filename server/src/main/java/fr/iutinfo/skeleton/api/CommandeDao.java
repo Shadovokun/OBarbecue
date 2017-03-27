@@ -13,7 +13,7 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommandeDao {
 	
-    @SqlUpdate("Create table commande(id Integer primary key, dat varchar(100) ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail),constraint fk_produit foreign key(nom) references produit(nom))")
+    @SqlUpdate("Create table commande(id Integer primary key, dat varchar(100) ,mail varchar(100),nom varchar(100), prix double ,constraint fk_mail foreign key(mail) references user(mail) ,constraint fk_produit foreign key(nom) references produit(nom))")
     void createCommandeTable();
     
     @SqlUpdate("Drop table if exists commande")

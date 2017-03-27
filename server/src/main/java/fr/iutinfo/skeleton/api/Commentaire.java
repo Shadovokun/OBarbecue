@@ -12,15 +12,25 @@ public class Commentaire {
 	private String dat;
 	private String mail;
 	private int note;
+	private int valide;
+
+	public int getValide() {
+		return valide;
+	}
+
+	public void setValide(int valide) {
+		this.valide = valide;
+	}
 
 	public Commentaire(){}
 	
-	public Commentaire(int id, String contenu, String d, String mail, int note ){
+	public Commentaire(int id, String contenu, String d, String mail, int note ,int valide){
 		this.id=id;
 		this.note = note;
 		this.contenu = contenu;
 		this.dat=d;
 		this.mail = mail;
+		this.valide = valide;
 	}
 	
 	public String getContenu() {
@@ -81,6 +91,7 @@ public class Commentaire {
         this.setId(dto.getId());
         this.setNote(dto.getNote());
         this.setDat(dto.getDat());
+        this.setValide(dto.getValide());
     }
 
     public CommentaireDTO convertToDto() {
@@ -91,6 +102,7 @@ public class Commentaire {
         dto.setId(this.getId());
         dto.setNote(this.getNote());
         dto.setDat(this.getDat());
+        dto.setValide(this.valide);
         return dto;
     }
 }

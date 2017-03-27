@@ -35,7 +35,7 @@ public class CommentaireRessource {
     public CommentaireRessource() throws SQLException {
         if (!tableExist("Commentaire")) {
             dao.createCommentaireTable();
-            dao.insertCommentaire(new Commentaire(2,"miam miam","16/05/2017","tutu@hotmail.fr",3));
+            dao.insertCommentaire(new Commentaire(2,"miam miam","16/05/2017","tutu@hotmail.fr",3,0));
         }
     }
     

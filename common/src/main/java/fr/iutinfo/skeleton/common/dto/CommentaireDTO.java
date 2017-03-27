@@ -8,8 +8,29 @@ public class CommentaireDTO {
 	private String date;
 	private String mail;
 	private int note;
+	private int valide;
 
 	
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public int getValide() {
+		return valide;
+	}
+
+
+	public void setValide(int valide) {
+		this.valide = valide;
+	}
+
+
 	public String getContenu() {
 		return contenu;
 	}
