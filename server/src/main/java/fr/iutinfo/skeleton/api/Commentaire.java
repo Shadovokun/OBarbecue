@@ -24,8 +24,7 @@ public class Commentaire {
 
 	public Commentaire(){}
 	
-	public Commentaire(int id, String contenu, String d, String mail, int note ,int valide){
-		this.id=id;
+	public Commentaire(String contenu, String d, String mail, int note ,int valide){
 		this.note = note;
 		this.contenu = contenu;
 		this.dat=d;

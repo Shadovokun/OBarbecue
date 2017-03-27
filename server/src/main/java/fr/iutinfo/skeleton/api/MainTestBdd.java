@@ -68,7 +68,8 @@ public class MainTestBdd {
 		daoCommentaire.dropCommentaireTable();
 		daoCommentaire.createCommentaireTable();
 		
-		daoCommentaire.insertCommentaire(new Commentaire(1, "tut", "tt", "tto", 5, 0));
+		daoCommentaire.insertCommentaire(new Commentaire("tut", "tt", "tto", 5, 0));
+		daoCommentaire.insertCommentaire(new Commentaire("teteu", "toto", "tto", 4, 0));
 		
 		ArrayList<Commentaire> list4 = new ArrayList();
 		
