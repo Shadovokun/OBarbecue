@@ -16,29 +16,49 @@ function getByAnnotation() {
 	getSecure("v1/secure/byannotation");
 }
 
- function getSecure(url) {
- if($("#userlogin").val() != "") {
-     $.ajax
-     ({
-       type: "GET",
-       url: url,
-       dataType: 'json',
-       beforeSend : function(req) {
-        req.setRequestHeader("Authorization", "Basic " + btoa($("#userlogin").val() + ":" + $("#passwdlogin").val()));
-       },
-       success: function (data) {
-        afficheUser(data);
-       },
-       error : function(jqXHR, textStatus, errorThrown) {
-       			alert('error: ' + textStatus);
-       		}
-     });
-     } else {
-     $.getJSON(url, function(data) {
-     	    afficheUser(data);
-        });
-     }
- }
+function getSecure(url) {
+	 if($("#pseudo").val() != "") {
+		 console.log("#pseudo n'était pas vide");
+	     $.ajax
+	     ({
+	       type: "GET",
+	       url: url,
+	       dataType: 'json',
+	       beforeSend : function(req) {
+	        req.setRequestHeader("Authorization", "Basic " + btoa($("#pseudo").val() + ":" + $("#password").val()));
+	       },
+	       success: function (data) {
+	    	   console.log("success : function");
+	    	   console.log(data);
+	    	   $("#connexion").hide();
+	    	   $("#inscription").hide();
+	    	   $("#deconnexion").show();
+	    	   if (data.role =="user") {
+	    		   $("#panier").show();
+	    		   //Afficher trucs pour user et cacher le reste
+	    	   } else if (data.role == "admin") {
+	    		   $("#page-accueil").hide();
+	               $("#page-menu").hide();
+	               $("#page-contact").hide();
+	               $("#page-admin").show();
+	               $("#page-add").hide();
+	               $("#page-connexion").hide();
+	               $("#page-inscription").hide();
+	               $("#page-mentions-legales").hide();
+	    		 //Afficher trucs pour admin et cacher le reste
+	    	   }
+	        afficheUser(data);
+	       },
+	       error : function(jqXHR, textStatus, errorThrown) {
+	       			alert('error: ' + textStatus);
+	       		}
+	     });
+	     } else {
+	     $.getJSON(url, function(data) {
+	     	    afficheUser(data);
+	        });
+	     }
+	 }
 
 function postUserBdd(nom, prenom, mail, role, pwd, adresse, num) {
     postUserGeneric(nom, prenom, mail, role, pwd, adresse, num, 0, "v1/user/");

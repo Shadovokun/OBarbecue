@@ -22,7 +22,7 @@ public interface ProduitDao {
     @GetGeneratedKeys
     int insertProduit(@BindBean() Produit prod);
     
-    @SqlUpdate("Delete from produits where nom= :nom")
+    @SqlUpdate("Delete from produits where nom=:nom")
     void deleteProduits(@Bind("nom") String nom);
     
 	@SqlQuery("Select * from produits ")
