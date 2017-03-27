@@ -237,3 +237,71 @@ function afficherPanier(data){
 	
 	$('#page-panier').html("Votre panier est vide");
 }
+
+function listProduitsBddMenuDeroulant() {
+    listProduitsGenericMenuDeroulant("v1/produit/");
+}
+
+function listProduitsGenericMenuDeroulant(url) {
+	$.getJSON(url, function(data) {
+		afficheListProduitsMenuDeroulant(data)
+	});
+}
+
+function afficheListProduitsMenuDeroulant(data) {
+	var selecteur = $('#selecteurSuppMenu');
+
+	var test;
+
+	for(var i = 0 ; i < data.length ; i++){
+		test+="<option id="+data[i].nom+"value="+data[i].nom+">"+data[i].nom+"</option>";
+	}
+	
+	selecteur.append(test);
+}
+
+function deleteProduitBdd(nom) {
+    deleteProduitGeneric("v1/produit/"+nom);
+}
+
+function deleteProduitGeneric(url) {
+	$.ajax({
+		type : 'DELETE',
+		url : url,
+		success : function(data, textStatus, jqXHR) {
+			alert("produit supprimer");
+			//afficheProduit(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postProduitDelete error: ' + textStatus);
+		}
+	});
+}
+
+function getCommentaire(mail, com, url) {
+	getCommentaireGeneric(mail, com, "v1/Commentaire");
+}
+
+function getCommentaireGeneric(mail, com, url) {
+	var aujd = new Date();
+	$.ajax({
+		type : 'POST',
+		contentType : 'application/json',
+		url : url,
+		dataType : "json",
+		data : JSON.stringify({
+			"contenu" : com,
+			"date" : aujd.getDate().toString() + "/" + parseInt(aujd.getMonth()+1).toString() + "/" + aujd.getFullYear().toString(),
+			"mail" : mail,
+			"valide" : 0,
+			"note" : 0
+		}),
+		success : function(data, textStatus, jqXHR) {
+			alert("yo");
+			//afficheProduit(data);
+		},
+		error : function(jqXHR, textStatus, errorThrown) {
+			console.log('postCom error: ' + textStatus);
+		}
+	});
+}
