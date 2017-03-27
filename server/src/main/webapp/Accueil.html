@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="general.css">
     <script src='jquery-2.1.3.js'></script>
     <script src='all.js'></script>
-    <script type="text/javascript"> 
+    <script>
+    
     $(document).ready(function(){
-        $("#page-accueil").hide();
+        $("#page-accueil").show();
         $("#page-menu").hide();
         $("#page-contact").hide();
-        $("#page-admin").show();
+        $("#page-admin").hide();
         $("#page-add").hide();
         $("#page-connexion").hide();
         $("#page-inscription").hide();
@@ -123,46 +124,9 @@
            postUserBdd($("#nomMenu").val(), $("#description").val(), $("#prix").val(), fileValue);
        })
 
-    });   
-
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 50.708322, lng: 3.15794},
-        zoom: 16
-    });
-      var infoWindow = new google.maps.InfoWindow({map: map});
-
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
-
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
-    }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    }
-
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5IYde6jR1hqZKAMd5TKXYw5XOBQT494&signed_in=true&callback=initMap"
-async defer>
-</script>
+    });  
+    
+    </script>
 
 <TITLE>O'Barbecue</TITLE>
 
@@ -329,9 +293,53 @@ async defer>
     </form>  
 
 
-    <section>
-        <div id="map"></div>
-    </section>
+    <div id="map"></div>
+    <br />
+    <a href="https://www.google.fr/maps/dir//44+Rue+du+Blanc+Seau,+59200+Tourcoing/@50.708268,3.1534034,16z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x47c328d8419898f5:0xe7bcfd9b4071a009!2m2!1d3.1577808!2d50.7082681?hl=fr" target="_blank">itinéraire</a>
+    <script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 50.7083215, lng: 3.157940300000064},
+    zoom: 8
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+
+  // Try HTML5 geolocation.
+  /*if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }*/
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5IYde6jR1hqZKAMd5TKXYw5XOBQT494&signed_in=true&callback=initMap"
+        >
+    </script>
     <br /><br /><br />
     <br /><br /><br />
 </div>
@@ -361,7 +369,7 @@ async defer>
 </div>
 
 <div id="page-inscription">
-	<div id="reponse-inscription"></div>
+    <div id="reponse-inscription"></div>
     <form method="post">
         <fieldset class="Inscription">
             <legend>Inscription</legend>
@@ -463,3 +471,4 @@ async defer>
 </footer>
 </BODY>
 </html>
+
