@@ -198,7 +198,7 @@ function afficheListProduits(data) {
 	
 	for(var i = 0 ; i < data.length ; i++){
 		if(data[i].type === "assiette"){
-			assiette+= "<h4> Assiette </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			assiette+= "<h4>Assiette</h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "aEmporter"){
 			aEmporter+= "<h4> Emporter </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "sandwich"){
@@ -222,4 +222,14 @@ function afficheListProduits(data) {
 	$('#menu-boisson').append(boisson);
 	$('#menu-salade').append(salade);
 	$('#menu-dessert').append(dessert);
+}
+
+
+function ajouterProduit(data){
+	alert("ok");
+}
+
+function afficherPanier(data){
+	
+	$('#page-panier').html("Votre panier est vide");
 }

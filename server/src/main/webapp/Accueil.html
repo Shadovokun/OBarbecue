@@ -8,20 +8,21 @@
 <script src='jquery-2.1.3.js'></script>
 <script src='all.js'></script>
 <script type="text/javascript">
-	$(document).ready(
-			function() {
+	$(document).ready(function() {
 				$("#deconnexion").hide();
+				$("#page-panier").hide();
 				$("#panier").hide();
-				$("#page-accueil").show();
+				$("#page-accueil").hide();
 				$("#page-menu").hide();
 				$("#page-contact").hide();
 				$("#page-admin").hide();
-				$("#page-add").hide();
+				$("#page-add").show();
 				$("#page-connexion").hide();
 				$("#page-inscription").hide();
 				$("#page-mentions-legales").hide();
 
 				$("#accueil").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").show();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -33,6 +34,7 @@
 				});
 
 				$("#menus").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").show();
 					$("#page-contact").hide();
@@ -41,11 +43,11 @@
 					$("#page-connexion").hide();
 					$("#page-inscription").hide();
 					$("#page-mentions-legales").hide();
-
 					listProduitsBdd();
 				});
 
 				$("#contact").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").show();
@@ -57,6 +59,7 @@
 				});
 
 				$("#connexion").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -68,6 +71,7 @@
 				});
 
 				$("#inscription").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -79,6 +83,7 @@
 				});
 
 				$("#mentions-legales").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -90,6 +95,7 @@
 				});
 
 				$("#add").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -101,6 +107,7 @@
 				});
 
 				$("#admin").click(function() {
+					$("#page-panier").hide();
 					$("#page-accueil").hide();
 					$("#page-menu").hide();
 					$("#page-contact").hide();
@@ -109,7 +116,24 @@
 					$("#page-connexion").hide();
 					$("#page-inscription").hide();
 					$("#page-mentions-legales").hide();
+					listProduitsBdd();
+					
 				});
+				
+				$("#panier").click(function() {
+					$("#page-panier").show();
+					$("#panier").show();
+					$("#page-accueil").hide();
+					$("#page-menu").hide();
+					$("#page-contact").hide();
+					$("#page-admin").hide();
+					$("#page-add").hide();
+					$("#page-connexion").hide();
+					$("#page-inscription").hide();
+					$("#page-mentions-legales").hide();
+					afficherPanier();
+				});
+				
 
 				$("#inscr").click(function(){
 	                postUserBdd($("#nom").val(), $("#prenom").val(), $("#email").val(), "user", $("#pass").val(), 
@@ -176,7 +200,7 @@
 	</aside>
 
 	<aside id="panier" style="margin-top: 100px;">
-		<img src="http://icons.iconarchive.com/icons/double-j-design/diagram-free/72/shopping-cart-icon.png" /> Panier
+		<img src="images/panier.png" id="img-panier"/>
 	</aside>
 
 	<HEADER>
@@ -501,6 +525,15 @@
 			</fieldset>
 		</form>
 	</div>
+	
+	
+	<div id="page-panier">
+	
+	</div>
+	
+	
+	
+	
 	<footer>
 		<img
 			src="http://icons.iconarchive.com/icons/sonya/swarm/48/Kebab-icon.png"

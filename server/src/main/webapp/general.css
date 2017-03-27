@@ -60,10 +60,17 @@ aside:hover{
 }
 
 aside#panier{
-	height:70px;
-	width:180px;
-	border-radius:0px;
+	height:60px;
+	padding:5px;
+	width:60px;
+	border-radius:0px 50px 50px 0px;
 	background-color:#803315;
+	transition:all 0.5s ease;   
+}
+
+aside#panier:hover{
+	width:80px;	
+	transition:all 0.5s ease;   
 }
 
 footer{      
@@ -180,6 +187,10 @@ ul{
 
 #table, tr, td{
 	border: 1px solid black;
+}
+
+#img-panier{
+	width:70px;
 }
 
 /*****PAGE DES MENUS*****/
