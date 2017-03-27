@@ -56,7 +56,7 @@ public class ProduitsRessource {
     }
     
     @GET
-    public List<ProduitDto> getAllUsers(@QueryParam("q") String query) {
+    public List<ProduitDto> getAllProduit(@QueryParam("q") String query) {
         List<Produit> prod;
         prod = dao.all();
         return prod.stream().map(Produit::convertToDto).collect(Collectors.toList());
