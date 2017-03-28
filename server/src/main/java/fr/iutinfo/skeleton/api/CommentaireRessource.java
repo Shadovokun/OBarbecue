@@ -42,6 +42,7 @@ public class CommentaireRessource {
     @POST
     public CommentaireDTO createCommentaire(CommentaireDTO dto) {
     	Commentaire com = new Commentaire();
+		com.initFromDto(dto);
         int id = dao.insertCommentaire(com);
         return dto;
     }
