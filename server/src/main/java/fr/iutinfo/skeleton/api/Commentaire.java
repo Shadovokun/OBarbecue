@@ -7,7 +7,6 @@ import fr.iutinfo.skeleton.common.dto.UserDto;
 
 public class Commentaire {
 	
-	private int id;
 	private String contenu;
 	private String dat;
 	private String mail;
@@ -72,22 +71,15 @@ public class Commentaire {
 	}
 
 
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int i){
-		this.id = id;
-	}
+
 
 	public String toString(){
-		return "id : "+id+" / contenu : "+contenu+" / date : "+dat;
+		return "contenu : "+contenu+" / date : "+dat +" mail : "+mail;
 	}
 
     public void initFromDto(CommentaireDTO dto) {
         this.setContenu(dto.getContenu());
         this.setMail(dto.getMail());
-        this.setId(dto.getId());
         this.setNote(dto.getNote());
         this.setDat(dto.getDat());
         this.setValide(dto.getValide());
@@ -98,7 +90,6 @@ public class Commentaire {
        
         dto.setContenu(this.getContenu());
         dto.setMail(this.getMail());
-        dto.setId(this.getId());
         dto.setNote(this.getNote());
         dto.setDat(this.getDat());
         dto.setValide(this.valide);

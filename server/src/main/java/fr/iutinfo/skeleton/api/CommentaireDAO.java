@@ -12,16 +12,12 @@ import org.skife.jdbi.v2.tweak.BeanMapperFactory;
 
 public interface CommentaireDAO {
 
-	@SqlUpdate("create table Commentaire (id INTEGER PRIMARY KEY autoincrement,contenu varchar(1000), dat varchar(50), mail varchar(50), valide integer, note integer check (note>-1), check (note<6))")
+	@SqlUpdate("create table Commentaire (contenu varchar(1000), dat varchar(50), mail varchar(50), valide integer, note integer check (note>-1), check (note<6) ,  PRIMARY KEY (contenu,mail))")
     void createCommentaireTable();
 	
 	 @SqlUpdate("insert into Commentaire (contenu,dat,mail,valide,note) values (:contenu, :dat, :mail,:valide, :note)")
 	 @GetGeneratedKeys
 	 int insertCommentaire(@BindBean() Commentaire com);
-	 
-	 @SqlQuery("select * from Commentaire where id = :id")
-	 @RegisterMapperFactory(BeanMapperFactory.class)
-	 Commentaire findByName(@Bind("id") String id);
 	 
 	 @SqlQuery("select * from Commentaire")
 	  @RegisterMapperFactory(BeanMapperFactory.class)
@@ -30,13 +26,13 @@ public interface CommentaireDAO {
 	 @SqlUpdate("drop table if exists Commentaire")
 	 void dropCommentaireTable();
 	 
-	 @SqlQuery("select * from Commentaire order by id")
+	 @SqlQuery("select * from Commentaire")
 	 @RegisterMapperFactory(BeanMapperFactory.class)
 	 List<Commentaire> all();
 	 
-	 @SqlQuery("select * from Commentaire where id = :id")
+	 @SqlQuery("select * from Commentaire where contenue like :contenu")
 	 @RegisterMapperFactory(BeanMapperFactory.class)
-	 Commentaire findById(@Bind("id") int id);
+	 List<Commentaire> findByContenu(@Bind("contenu") String contenu);
 	 
 	 @SqlQuery("select * from Commentaire where valide = :valide")
 	 @RegisterMapperFactory(BeanMapperFactory.class)

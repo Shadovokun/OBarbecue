@@ -3,7 +3,6 @@ package fr.iutinfo.skeleton.common.dto;
 import java.sql.Date;
 
 public class CommentaireDTO {
-	private int id;
 	private String contenu;
 	private String date;
 	private String mail;
@@ -68,15 +67,6 @@ public class CommentaireDTO {
 
 	public void setNote(int note) {
 		this.note = note;
-	}
-
-
-	public int getId() {
-		return id;
-	}
-	
-	public void setId(int i){
-		this.id = id;
 	}
 
 }

@@ -48,16 +48,16 @@ public class CommentaireRessource {
     
     @GET
     @Path("/{name}")
-    public CommentaireDTO getCommentaire(@PathParam("id") int id) {
-    	Commentaire com = dao.findById(id);
+    public List<CommentaireDTO> getCommentaire(@PathParam("contenu") String contenu) {
+    	List<Commentaire> com = dao.findByContenu(contenu);
         if (com == null) {
             throw new WebApplicationException(404);
         }
-        return com.convertToDto();
+        return com.stream().map(Commentaire::convertToDto).collect(Collectors.toList());
     }
     
     @GET
-    public List<CommentaireDTO> getAllCommentaire(@QueryParam("q") String query) {
+    public  List<CommentaireDTO> getAllCommentaire(@QueryParam("q") String query) {
         List<Commentaire> com;
         com = dao.all();
         return com.stream().map(Commentaire::convertToDto).collect(Collectors.toList());
