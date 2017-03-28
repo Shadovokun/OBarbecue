@@ -81,14 +81,15 @@ function getSecure(url) {
 	    			$("#page-accueil").hide();
 	    			$("#page-menu").hide();
 	    			$("#page-contact").hide();
-	    			$("#page-admin").hide();
-	    			$("#page-add").hide();
+	    			$("#page-admin").show();
+	    			$("#page-add").show();
 	    			$("#page-connexion").hide();
 	    			$("#page-inscription").hide();
 	    			$("#page-mentions-legales").hide();
 	    			$("#page-panier").hide();
 	    			$("#page-supp").hide();
 	    			$("#page-commandes").show();
+	    			listProduitsBdd();
 	    		 //Afficher trucs pour admin et cacher le reste
 	    		}
 	    		afficheUser(data);

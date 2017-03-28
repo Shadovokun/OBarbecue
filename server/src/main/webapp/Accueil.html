@@ -125,6 +125,7 @@
 			$("#page-mentions-legales").hide();
 			$("#page-supp").hide();
 			$("#page-commandes").hide();
+			listProduitsBdd();
 		});
 
 		$("#admin").click(function() {
@@ -182,8 +183,8 @@
 			$("#page-accueil").hide();
 			$("#page-menu").hide();
 			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
+			$("#page-admin").show();
+			$("#page-add").show();
 			$("#page-connexion").hide();
 			$("#page-inscription").hide();
 			$("#page-mentions-legales").hide();
@@ -263,7 +264,7 @@
 	</aside>
 
 <aside id="commandes" style="margin-top: 50px;">
-	<a>Commandes</a>
+	<a>Administration</a>
 </aside>
 
 
@@ -572,26 +573,14 @@
 							visites sur le site.
 						</p>
 
-						<section>
 
-							<div id="menu-assiette"></div>
-							<div id="menu-emporter"></div>
-							<div id="menu-sandwich"></div>
-							<br />
-							<div id="menu-accompagnement"></div>
-							<div id="menu-boisson"></div>
-							<div id="menu-salade"></div>
-							<br />
-							<div id="menu-dessert"></div>
-						</section>
-
-						<div class="bas">
+						<!--- <div class="bas">
 							<input type="submit" value="Valider" /> <input type='button'
 							id="add" value='Ajouter Menu'
 							onClick='PopupCentrer("add.html",600,340,"menubar=no,scrollbars=no,statusbar=no")'>
 							<input type="submit" value="Modifier" /> <input type="reset"
 							value="Annuler" />
-						</div>
+						</div>---!>
 
 						<div id="page-add">
 							<form method="post">
@@ -639,6 +628,11 @@
 					<a id="suivant-commande">Suivant</a>
 					<span id="commande-actuelle"></span>
 				</fieldset>
+				
+				<br /> 
+				<br /> 
+				<br /> 
+				<br /> 
 			</div>
 
 
