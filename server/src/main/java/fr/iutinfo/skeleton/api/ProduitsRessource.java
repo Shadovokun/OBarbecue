@@ -33,7 +33,42 @@ public class ProduitsRessource {
     public ProduitsRessource() throws SQLException {
         if (!tableExist("produits")) {
             dao.createProduitsTable();
-            dao.insertProduit(new Produit("coca","boisson fraiche","img/coca", 2,"boisson"));
+            
+            
+            // assiette
+            dao.insertProduit(new Produit( "Assiette1" ,"1/2 Poulet + accompagnement + boisson 33 cl","",10.5,"assiette"));
+            dao.insertProduit(new Produit( "Assiette2" ,"Ribs + accompagnement + boisson 33 cl","",10.5,"assiette"));
+            dao.insertProduit(new Produit( "Assiette3" ,"Assiette végétarienne + steak végétariens + accompagnement + boisson 33 cl","",10.5,"assiette"));
+            // a emporter
+            dao.insertProduit(new Produit("Poulet1","1/2 Poulet","",6.5,"aEmporter"));
+            dao.insertProduit(new Produit("Poulet2","Poulet entier","",12.5,"aEmporter"));
+            dao.insertProduit(new Produit("Poulet3","Pilons","",8,"aEmporter"));
+            dao.insertProduit(new Produit("Poulet4","Cuisses","",8,"aEmporter"));
+            dao.insertProduit(new Produit("Poulet5","Blanc","",8,"aEmporter"));
+            dao.insertProduit(new Produit("Poulet6","Ailes","",8,"aEmporter"));
+            // sandwich
+            dao.insertProduit(new Produit("Sandwich1","Sandwich froid au poulet + boisson 33cl","",5,"sandwich"));
+            dao.insertProduit(new Produit("Sandwich2","Sandwich chaud poulet ou saucisse + boisson 33cl","",5.5,"sandwich"));
+            dao.insertProduit(new Produit("Sandwich3","Pyramides Sucrées/Salées","",2.5,"sandwich"));
+            // accompagnements
+            dao.insertProduit(new Produit("Accompagnement1","Riz","",2.5,"accompagnement"));
+            dao.insertProduit(new Produit("Accompagnemen2","Pâtes","",2.5,"accompagnement"));
+            dao.insertProduit(new Produit("Accompagnement3","Frites","",2.5,"accompagnement"));
+            dao.insertProduit(new Produit("Accompagnement4","Pomme de Terre","",2.5,"accompagnement"));
+            // boisson
+            dao.insertProduit(new Produit("Boisson1","Soda 33cl","",1.5,"boisson"));
+            dao.insertProduit(new Produit("Boisson2","Eau Plates 33cl","",1.0,"boisson"));
+            dao.insertProduit(new Produit("Boisson3","Eau Gazeuses 33cl","",1.5,"boisson"));
+            dao.insertProduit(new Produit("Boisson4","Grande Bouteilles","",2.5,"boisson"));
+            dao.insertProduit(new Produit("Boisson5","Café","",1.3,"boisson"));
+            dao.insertProduit(new Produit("Boisson6","Cappucino","",2,"boisson"));
+            dao.insertProduit(new Produit("Boisson7","Thé","",1.3,"boisson"));
+            // salade 
+            dao.insertProduit(new Produit("Salade1","Assiette salade saison poulet","",6.5,"salade"));
+            dao.insertProduit(new Produit("Salade2","Assiette salade saison végétarienne","",7.5,"salade"));
+            // dessert 
+            dao.insertProduit(new Produit("Dessert1","Tiramissu","",2.5,"dessert"));
+            dao.insertProduit(new Produit("Dessert2","Crêpes","",2.5,"dessert"));
         }
     }
     
