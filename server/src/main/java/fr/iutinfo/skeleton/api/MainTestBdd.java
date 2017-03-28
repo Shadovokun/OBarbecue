@@ -50,8 +50,8 @@ public class MainTestBdd {
 		daoCommande.dropCommandeTable();
 		daoCommande.createCommandeTable();
 		System.out.println("COMMANDE :");
-		daoCommande.insertCommande(new Commande(1, "24/03/2017", "tutu", "Menu1", 8.50));
-		daoCommande.insertCommande(new Commande(2, "24/03/2017", "tutu2", "Menu2", 5.50));
+		daoCommande.insertCommande(new Commande(1, "24/03/2017", "tutu", "Menu1", 8.50,5));
+		daoCommande.insertCommande(new Commande(2, "24/03/2017", "tutu2", "Menu2", 5.50,5));
 	
 		ArrayList<Commande> list3 = new ArrayList();
 		

@@ -9,13 +9,23 @@ public class Commande {
 	private String mail;
 	private String nom;
 	private double prix;
+	private int nbr;
 	
-	public Commande(int id, String date ,String mailUser,String nom, double prix){
+	public int getNbr() {
+		return nbr;
+	}
+
+	public void setNbr(int nbr) {
+		this.nbr = nbr;
+	}
+
+	public Commande(int id, String date ,String mailUser,String nom, double prix, int nbr){
 		this.id = id;
 		this.dat = date;
 		this.mail = mailUser;
 		this.nom = nom;
 		this.prix = prix;
+		this.nbr = nbr;
 	}
 	
 	public Commande(){}
@@ -67,8 +77,8 @@ public class Commande {
     public void initFromDto(CommandeDto dto) {
         this.setId(dto.getId());
         this.setDat(dto.getDate());
-        this.setMail(dto.getMail_user());
-        this.setNom(dto.getNom_produit());
+        this.setMail(dto.getMail());
+        this.setNom(dto.getNom());
         this.setPrix(dto.getPrix());
     }
 
@@ -76,8 +86,8 @@ public class Commande {
         CommandeDto dto = new CommandeDto();
         dto.setId(this.getId());
         dto.setDate(this.getDat());
-        dto.setMail_user(this.getMail());
-        dto.setNom_menu(this.getNom());
+        dto.setMail(this.getMail());
+        dto.setNom(this.getNom());
         dto.setPrix(this.getPrix());
         return dto;
     }

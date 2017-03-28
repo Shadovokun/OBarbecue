@@ -24,7 +24,7 @@ public class CommandeRessource {
     public CommandeRessource() throws SQLException {
         if (!tableExist("commande")) {
             dao.createCommandeTable();
-            dao.insertCommande(new Commande(0, "23/03/2017", "test@test.fr", "Menu1", 8.0));
+            dao.insertCommande(new Commande(0, "23/03/2017", "test@test.fr", "Menu1", 8.0,5));
         }
     }
 
