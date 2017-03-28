@@ -1,216 +1,252 @@
 <! DOCTYPE html>
 <html lang="fr">
 <HEAD>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet"> 
-	<link rel="stylesheet" href="general.css">
-	<script src='jquery-2.1.3.js'></script>
-	<script src='all.js'></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$("#deconnexion").hide();
-		$("#page-panier").hide();
-		$("#panier").hide();
-		$("#page-accueil").hide();
-		$("#page-menu").hide();
-		$("#page-contact").hide();
-		$("#page-admin").hide();
-		$("#page-add").hide();
-		$("#page-connexion").hide();
-		$("#page-inscription").hide();
-		$("#page-mentions-legales").hide();
-		$("#page-supp").show();
-		listProduitsBddMenuDeroulant();
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://fonts.googleapis.com/css?family=Pangolin"
+	rel="stylesheet">
+<link rel="stylesheet" href="general.css">
+<script src='jquery-2.1.3.js'></script>
+<script src='all.js'></script>
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$("#deconnexion").hide();
+						$("#commandes").hide();
+						$("#page-panier").hide();
+						$("#panier").hide();
+						$("#page-accueil").show();
+						$("#page-menu").hide();
+						$("#page-contact").hide();
+						$("#page-admin").hide();
+						$("#page-add").hide();
+						$("#page-connexion").hide();
+						$("#page-inscription").hide();
+						$("#page-mentions-legales").hide();
+						$("#page-supp").hide();
+						$("#page-commandes").hide();
+						
+						listProduitsBddMenuDeroulant();
 
-		$("#accueil").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").show();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-		});
+						$("#accueil").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").show();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#menus").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").show();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-			listProduitsBdd();
-		});
+						$("#menus").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").show();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+							listProduitsBdd();
+						});
 
-		$("#contact").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").show();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-		});
+						$("#contact").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").show();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#connexion").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").show();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-		});
+						$("#connexion").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").show();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#inscription").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").show();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-		});
+						$("#inscription").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").show();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#mentions-legales").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").show();
-			$("#page-supp").hide();
-		});
+						$("#mentions-legales").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").show();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#add").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").show();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-		});
+						$("#add").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").show();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+						});
 
-		$("#admin").click(function() {
-			$("#page-panier").hide();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").show();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-			listProduitsBdd();
+						$("#admin").click(function() {
+							$("#page-panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").show();
+							$("#page-add").show();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").show();
+							$("#page-commandes").hide();
+							listProduitsBdd();
 
-		});
+						});
 
-		$("#panier").click(function() {
-			$("#page-panier").show();
-			$("#panier").show();
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").hide();
-			afficherPanier();
-		});
+						$("#panier").click(function() {
+							$("#page-panier").show();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").hide();
+							afficherPanier();
+						});
+						
+						$("#deconnexion").click(function() {
+							$("#commandes").hide();
+							$("#deconnexion").hide();
+							$("#connexion").show();
+							$("#inscription").show();
+							$("#page-accueil").show();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#panier").hide();
+							$("#page-commandes").hide();
+						});
+						
+						$("#commandes").click(function() {
+							$("#page-panier").hide();
+							$("#panier").hide();
+							$("#page-accueil").hide();
+							$("#page-menu").hide();
+							$("#page-contact").hide();
+							$("#page-admin").hide();
+							$("#page-add").hide();
+							$("#page-connexion").hide();
+							$("#page-inscription").hide();
+							$("#page-mentions-legales").hide();
+							$("#page-supp").hide();
+							$("#page-commandes").show();
+						});						
 
-		$("#page-supp").click(function(){
-			$("#page-accueil").hide();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#page-supp").show();
-		});
+						$("#inscr").click(
+								function() {
+									postUserBdd($("#nom").val(), $("#prenom")
+											.val(), $("#email").val(), "user",
+											$("#pass").val(), $("#rue").val()
+													+ " "
+													+ $("#code-postal").val()
+													+ " " + $("#ville").val(),
+											$("#tel").val());
+								});
 
+						$("#addMenu").click(
+								function() {
+									//alert($("#nomMenu").val() + " " + $("#descriptionAdd").val() + " " + parseInt($("#prix").val()) + " " + fileValue);
+									postProduitBdd($("#nomMenu").val(), $(
+											"#descriptionAdd").val(),
+											parseFloat($("#prix").val()), null,
+											$("#type").val());
+									alert("Produit enregistré !");
+								});
 
-		$("#inscr").click(function(){
-			postUserBdd($("#nom").val(), $("#prenom").val(), $("#email").val(), "user", $("#pass").val(), 
-				$("#rue").val() + " " + $("#code-postal").val() + " " + $("#ville").val(), $("#tel").val());          
-		});
+						$("#suppMenu")
+								.click(
+										function() {
+											deleteProduitBdd($(
+													'#selecteurSuppMenu option:selected')
+													.val());
+											//alert($('#selecteurSuppMenu option:selected').val());
+											$("#suppMenu").addEventListener(
+													'click', location.reload(),
+													false);
+										})
 
-		$("#addMenu").click(function(){
-		            //alert($("#nomMenu").val() + " " + $("#descriptionAdd").val() + " " + parseInt($("#prix").val()) + " " + fileValue);
-		            postProduitBdd($("#nomMenu").val(), $("#descriptionAdd").val(), parseFloat($("#prix").val()), null, $("#type").val());
-		            alert("Produit enregistré !");
-		        });
+						$("#envoyCom").click(
+								function() {
+									//alert($("#mailCom").val() + $("#areaCom").val());
+									getCommentaire($("#mailCom").val(), $(
+											"#areaCom").val());
+								})
 
-		$("#suppMenu").click(function(){
-			deleteProduitBdd($('#selecteurSuppMenu option:selected').val());
-            //alert($('#selecteurSuppMenu option:selected').val());
-            $("#suppMenu").addEventListener('click', location.reload(), false);
-        })
+						$("#envoyer-connexion").click(function() {
+							getForAll();
+						});
 
-		$("#envoyCom").click(function(){
-            //alert($("#mailCom").val() + $("#areaCom").val());
-            getCommentaire($("#mailCom").val(), $("#areaCom").val());
-        })
+						$("#pseudo").keydown(function(e) {
+							if (e.keyCode == 13) { // left
+								$("#envoyer-connexion").click();
+							}
+						});
 
-		$("#envoyer-connexion").click(function() {
-			getForAll();
-		});
-
-		$("#deconnexion").click(function() {
-			$("#deconnexion").hide();
-			$("#connexion").show();
-			$("#inscription").show();
-			$("#page-accueil").show();
-			$("#page-menu").hide();
-			$("#page-contact").hide();
-			$("#page-admin").hide();
-			$("#page-add").hide();
-			$("#page-connexion").hide();
-			$("#page-inscription").hide();
-			$("#page-mentions-legales").hide();
-			$("#panier").hide();
-		});
-
-		$("#pseudo").keydown(function(e) {
-		if (e.keyCode == 13) { // left
-			$("#envoyer-connexion").click();
-		}
-	});
-
-		$("#password").keydown(function(e) {
-		if (e.keyCode == 13) { // left
-			$("#envoyer-connexion").click();
-		}
-	});
-	});
+						$("#password").keydown(function(e) {
+							if (e.keyCode == 13) { // left
+								$("#envoyer-connexion").click();
+							}
+						});
+					});
 </script>
 
 <TITLE>O'Barbecue</TITLE>
@@ -234,8 +270,16 @@
 	</aside>
 
 	<aside id="panier" style="margin-top: 100px;">
-		<img src="images/panier.png" id="img-panier"/>
+		<img src="images/panier.png" id="img-panier" />
 	</aside>
+
+	</aside>
+
+	<aside id="commandes" style="margin-top: 50px;">
+		<a>Commandes</a>
+	</aside>
+
+
 
 	<HEADER>
 		<img src="images/OBarbecue.png" class="titre" />
@@ -251,22 +295,30 @@
 			<div class="container">
 				<div class="slider">
 					<figure>
-						<img src="http://img.fac.pmdstatic.net/fit/http.3A.2F.2Fwww.2Efemmeactuelle.2Efr.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fcuisine.2Frecettes.2Fplat.2Fmixed-grill-au-barbecue-02788.2F10313773-3-fre-FR.2Fmixed-grill-au-barbecue.2Ejpg/734x367/crop-from/center/mixed-grill-au-barbecue.jpg" alt="" width="450" height="310" />
+						<img
+							src="http://img.fac.pmdstatic.net/fit/http.3A.2F.2Fwww.2Efemmeactuelle.2Efr.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fcuisine.2Frecettes.2Fplat.2Fmixed-grill-au-barbecue-02788.2F10313773-3-fre-FR.2Fmixed-grill-au-barbecue.2Ejpg/734x367/crop-from/center/mixed-grill-au-barbecue.jpg"
+							alt="" width="450" height="310" />
 						<figcaption>Blablabla</figcaption>
 					</figure>
-					
+
 					<figure>
-						<img src="https://img1.dlmcdn.fr/a/1305/JBQ1305120-0101-0300-p00-barbecue-charbon-bois-qooka-a700-acier-1065x465.jpg" alt="" width="450" height="310" />
+						<img
+							src="https://img1.dlmcdn.fr/a/1305/JBQ1305120-0101-0300-p00-barbecue-charbon-bois-qooka-a700-acier-1065x465.jpg"
+							alt="" width="450" height="310" />
 						<figcaption>Blablabli</figcaption>
 					</figure>
-					
+
 					<figure>
-						<img src="http://mapassionduverger.fr/wp-content/uploads/2015/02/reussir-barbecue1-650x514.jpg" alt="" width="450" height="310" />
+						<img
+							src="http://mapassionduverger.fr/wp-content/uploads/2015/02/reussir-barbecue1-650x514.jpg"
+							alt="" width="450" height="310" />
 						<figcaption>Texte texte</figcaption>
 					</figure>
 
 					<figure>
-						<img src="http://www.ikea.com/fr/fr/images/products/klasen-barbecue-au-charbon__0400599_PE566030_S4.JPG" alt="" width="450" height="310" />
+						<img
+							src="http://www.ikea.com/fr/fr/images/products/klasen-barbecue-au-charbon__0400599_PE566030_S4.JPG"
+							alt="" width="450" height="310" />
 						<figcaption>Texte texte texte</figcaption>
 					</figure>
 				</div>
@@ -277,102 +329,102 @@
 		<section id="descriptionResto">
 			<p>Bienvenue dans mon restaurant O'Barbecue, un nouveau concept
 				de fast-food spécial barbecue encore jamais réalisé!</p>
-			</section>
+		</section>
 
 
-			<section id="horaires">
-				<ul>
-					<li class="jourSemaine"><span
-						style="padding-right: 46px; font-weight: bold;">Lundi:</span>11h -
-						23h</li>
-						<li class="jourSemaine"><span
-							style="padding-right: 42px; font-weight: bold;">Mardi:</span>11h -
-							23h</li>
-							<li class="jourSemaine"><span
-								style="padding-right: 23px; font-weight: bold;">Mercredi:</span>11h
-								- 23h</li>
-								<li class="jourSemaine"><span
-									style="padding-right: 48px; font-weight: bold;">Jeudi:</span>11h -
-									23h</li>
-									<li class="jourSemaine"><span
-										style="padding-right: 25px; font-weight: bold;">Vendredi:</span>11h
-										- 23h</li>
-										<li class="jourSemaine"><span
-											style="padding-right: 34px; font-weight: bold;">Samedi:</span>11h -
-											23h</li>
-											<li class="jourSemaine"><span
-												style="padding-right: 15px; font-weight: bold;">Dimanche:</span>11h
-												- 23h</li>
-											</ul>
-											<br /> <br />
-											<p id="coord">
-												<span style="padding-right: 26px; font-weight: bold;">Numéro:</span>
-												06.06.06.06.06<br /> <span
-												style="padding-right: 26px; font-weight: bold;">Adresse:</span>
-												Tourcoing
-											</p>
-										</section>
+		<section id="horaires">
+			<ul>
+				<li class="jourSemaine"><span
+					style="padding-right: 46px; font-weight: bold;">Lundi:</span>11h -
+					23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 42px; font-weight: bold;">Mardi:</span>11h -
+					23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 23px; font-weight: bold;">Mercredi:</span>11h
+					- 23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 48px; font-weight: bold;">Jeudi:</span>11h -
+					23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 25px; font-weight: bold;">Vendredi:</span>11h
+					- 23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 34px; font-weight: bold;">Samedi:</span>11h -
+					23h</li>
+				<li class="jourSemaine"><span
+					style="padding-right: 15px; font-weight: bold;">Dimanche:</span>11h
+					- 23h</li>
+			</ul>
+			<br /> <br />
+			<p id="coord">
+				<span style="padding-right: 26px; font-weight: bold;">Numéro:</span>
+				06.06.06.06.06<br /> <span
+					style="padding-right: 26px; font-weight: bold;">Adresse:</span>
+				Tourcoing
+			</p>
+		</section>
 
-										<br /> <br />
-									</div>
-
-
-									<div id="page-menu">
-
-										<section>
-
-											<div id="menu-assiette"></div>
-											<div id="menu-emporter"></div>
-											<div id="menu-sandwich"></div>
-											<br /> 
-											<div id="menu-accompagnement"></div>
-											<div id="menu-boisson"></div>
-											<div id="menu-salade"></div>
-											<br />
-											<div id="menu-dessert"></div>
-										</section>
-										<br /> <br /> <br /> <br /> <br /> <br />
-									</div>
+		<br /> <br />
+	</div>
 
 
-									<div id="page-contact">
-										<section>
-											<div id="adresse">
-												<h3>ÔBarbecue</h3>
-												<p>
-													43, rue de blanc seau <br /> 59200 Tourcoing
-												</p>
-											</div>
+	<div id="page-menu">
 
-											<div id="telephone">
-												<h3>Contact</h3>
-												<p>
-													ôbarbecue.resto@yahoo.com<br /> 06.84.82.70.12
-												</p>
-											</div>
+		<section>
 
-											<div style="clear: both;"></div>
-										</section>
+			<div id="menu-assiette"></div>
+			<div id="menu-emporter"></div>
+			<div id="menu-sandwich"></div>
+			<br />
+			<div id="menu-accompagnement"></div>
+			<div id="menu-boisson"></div>
+			<div id="menu-salade"></div>
+			<br />
+			<div id="menu-dessert"></div>
+		</section>
+		<br /> <br /> <br /> <br /> <br /> <br />
+	</div>
 
 
+	<div id="page-contact">
+		<section>
+			<div id="adresse">
+				<h3>ÔBarbecue</h3>
+				<p>
+					43, rue de blanc seau <br /> 59200 Tourcoing
+				</p>
+			</div>
 
-										<form method="get" action="Accueil.html">
-											<fieldset>
-												<legend>Laissez nous votre avis</legend>
-												<label for="mail">Votre adresse mail :</label> <input type="text"
-												name="pseudal" value="" autofocus /><br /> <label for="com">Votre
-												commentaire :</label><br />
-												<textarea name="commentaire" rows="10" cols="40"></textarea>
-												<br /> <br /> <input type="submit" value="Envoyer" />
-											</fieldset>
-										</form>
+			<div id="telephone">
+				<h3>Contact</h3>
+				<p>
+					ôbarbecue.resto@yahoo.com<br /> 06.84.82.70.12
+				</p>
+			</div>
+
+			<div style="clear: both;"></div>
+		</section>
 
 
-										<div id="map"></div>
-										<br /> <a
-										href="https://www.google.fr/maps/dir//44+Rue+du+Blanc+Seau,+59200+Tourcoing/@50.708268,3.1534034,16z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x47c328d8419898f5:0xe7bcfd9b4071a009!2m2!1d3.1577808!2d50.7082681?hl=fr"
-										target="_blank">itinéraire</a>
-										<script>
+
+		<form method="get" action="Accueil.html">
+			<fieldset>
+				<legend>Laissez nous votre avis</legend>
+				<label for="mail">Votre adresse mail :</label> <input type="text"
+					name="pseudal" value="" autofocus /><br /> <label for="com">Votre
+					commentaire :</label><br />
+				<textarea name="commentaire" rows="10" cols="40"></textarea>
+				<br /> <br /> <input type="submit" value="Envoyer" />
+			</fieldset>
+		</form>
+
+
+		<div id="map"></div>
+		<br /> <a
+			href="https://www.google.fr/maps/dir//44+Rue+du+Blanc+Seau,+59200+Tourcoing/@50.708268,3.1534034,16z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x47c328d8419898f5:0xe7bcfd9b4071a009!2m2!1d3.1577808!2d50.7082681?hl=fr"
+			target="_blank">itinéraire</a>
+		<script>
 			// Note: This example requires that you consent to location sharing when
 			// prompted by your browser. If you see the error "The Geolocation service
 			// failed.", it means you probably did not give permission for the browser to
@@ -413,185 +465,194 @@
 			function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 				infoWindow.setPosition(pos);
 				infoWindow
-				.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.'
-					: 'Error: Your browser doesn\'t support geolocation.');
+						.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.'
+								: 'Error: Your browser doesn\'t support geolocation.');
 			}
-			</script>
-			<script async defer
+		</script>
+		<script async defer
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5IYde6jR1hqZKAMd5TKXYw5XOBQT494&signed_in=true&callback=initMap">
 			
-			</script>
-			<br /> <br /> <br /> <br /> <br /> <br />
-		</div>
+		</script>
+		<br /> <br /> <br /> <br /> <br /> <br />
+	</div>
 
-		<div id="page-connexion">
+	<div id="page-connexion">
 
-			<fieldset>
-				<legend>Connectez-vous</legend>
+		<fieldset>
+			<legend>Connectez-vous</legend>
 
-				<label for="pseudo">Adresse mail :</label> <input type="email"
+			<label for="pseudo">Adresse mail :</label> <input type="email"
 				name="pseudo" id="pseudo" autofocus /> <br /> <label for="pass">Mot
 				de passe :</label> <input type="password" name="password" id="password" />
 
-				<br /> <br />
+			<br /> <br />
 
-				<button id="envoyer-connexion">Se connecter</button>
-				<button id="annuler-connexion">Annuler</button>
+			<button id="envoyer-connexion">Se connecter</button>
+			<button id="annuler-connexion">Annuler</button>
 
-			</fieldset>
+		</fieldset>
 
-		</div>
+	</div>
 
-		<div id="page-inscription">
-			<form method="post">
-				<fieldset class="Inscription">
-					<legend>Inscription</legend>
-					<label for="nom">Nom :</label> <input id="nom" name="nom"
+	<div id="page-inscription">
+		<form method="post">
+			<fieldset class="Inscription">
+				<legend>Inscription</legend>
+				<label for="nom">Nom :</label> <input id="nom" name="nom"
 					type="text" /><br /> <label for="prenom">Prénom : </label> <input
 					id="prenom" name="prenom" type="text" /><br /> <label>Adresse
 					: </label> <input id="rue" name="rue" type="text" /><br /> <label>Code
 					postal: </label> <input id="code-postal" name="code-postal" type="text" /><br />
-					<label>Ville : </label> <input id="ville" name="ville" type="text" /><br />
-					<label for="email">Mail ?</label> <input type="text" name="email"
+				<label>Ville : </label> <input id="ville" name="ville" type="text" /><br />
+				<label for="email">Mail ?</label> <input type="text" name="email"
 					id="email" tabindex="30" /><br /> <label>Téléphone : </label> <input
 					id="tel" name="tel" type="text" /><br /> <label for="pass">Mot
 					de passe :</label> <input type="password" name="pass" id="pass" /><br />
-					<br /> <input id="inscr" type="button" value="Valider" /> <input
+				<br /> <input id="inscr" type="button" value="Valider" /> <input
 					type="reset" value="Annuler" />
-				</fieldset>
-			</form>
+			</fieldset>
+		</form>
 
-			<br /> <br /> <br />
+		<br /> <br /> <br />
+	</div>
+
+	<div id="page-mentions-legales">
+
+		<br />
+
+		<h3>Mentions légales</h3>
+
+		<p style="text-align: justify; padding: 5px;">Lorem ipsum dolor
+			sit amet, consectetur adipiscing elit. Aenean dapibus, enim non
+			ullamcorper dictum, dolor nisl pharetra nisl, nec semper massa elit
+			id mauris. Maecenas cursus nisl sit amet vehicula mattis. In iaculis
+			tortor eros, a efficitur turpis imperdiet ut. Aliquam eget euismod
+			ex. Sed in neque ut orci lacinia porttitor. Nam consequat, urna ut
+			convallis vulputate, massa nisi tristique ligula, ac posuere sapien
+			felis vel leo. Donec bibendum metus lacus, vel fringilla nisl finibus
+			a. Etiam luctus est vitae mi cursus, ac pulvinar est luctus.
+			Pellentesque placerat pellentesque dolor, non molestie nulla rhoncus
+			sit amet. Donec elementum sed mauris sed laoreet. Maecenas nulla
+			tellus, tristique a ante vel, blandit cursus tellus. Nulla dignissim
+			nisl eu condimentum convallis. Vestibulum ante ipsum primis in
+			faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse
+			sagittis at lacus non ultrices. Duis consequat sapien non lorem
+			euismod consectetur. Integer imperdiet sed tortor at egestas.</p>
+		<p style="text-align: justify; padding: 5px;">Pellentesque ut
+			libero a mi lobortis sagittis non non augue. Pellentesque velit ex,
+			vestibulum ac felis id, fermentum tempus velit. Sed auctor, urna ac
+			tincidunt tempor, justo tellus gravida enim, eget lacinia leo mi
+			vitae sapien. Vestibulum ante ipsum primis in faucibus orci luctus et
+			ultrices posuere cubilia Curae; Donec consequat sed ligula ut auctor.
+			Fusce mattis justo at dignissim viverra. Vestibulum in pretium lorem,
+			vitae aliquet mauris. Pellentesque vestibulum urna nec ultrices
+			tempor. Proin in viverra nisl. Pellentesque tristique turpis vel
+			nulla cursus, vitae gravida ante porta. Vestibulum non convallis
+			erat, a cursus metus. Orci varius natoque penatibus et magnis dis
+			parturient montes, nascetur ridiculus mus.</p>
+		<p style="text-align: justify; padding: 5px;">Ut ultrices quam id
+			leo sollicitudin laoreet. Proin dapibus laoreet eros, sit amet
+			convallis nisi ultrices ut. Ut accumsan pharetra nunc, in mollis
+			turpis faucibus non. Aliquam diam arcu, aliquam nec nisi vel, commodo
+			dignissim orci. Integer id orci accumsan, aliquet mauris in, bibendum
+			metus. Ut finibus eros nulla, quis lobortis felis accumsan a. Aliquam
+			erat volutpat. Nullam vel felis ultrices, euismod augue eget,
+			lobortis velit. Donec porttitor ligula erat, eget efficitur orci
+			dictum ornare.</p>
+
+		<br /> <br /> <br />
+	</div>
+
+	<div id="page-admin">
+
+		<p>
+			Il y a <a href="http://www.mon-compteur.fr"><img
+				src="http://www.mon-compteur.fr/html_c01genv2-198576-2" border="0" /></a>
+			visites sur le site.
+		</p>
+
+		<section>
+
+			<div id="menu-assiette"></div>
+			<div id="menu-emporter"></div>
+			<div id="menu-sandwich"></div>
+			<br />
+			<div id="menu-accompagnement"></div>
+			<div id="menu-boisson"></div>
+			<div id="menu-salade"></div>
+			<br />
+			<div id="menu-dessert"></div>
+		</section>
+
+		<div class="bas">
+			<input type="submit" value="Valider" /> <input type='button'
+				id="add" value='Ajouter Menu'
+				onClick='PopupCentrer("add.html",600,340,"menubar=no,scrollbars=no,statusbar=no")'>
+			<input type="submit" value="Modifier" /> <input type="reset"
+				value="Annuler" />
 		</div>
 
-		<div id="page-mentions-legales">
+		<div id="page-add">
+			<form method="post">
+				<fieldset>
+					<legend>Ajout Menu</legend>
+					<label for="nom">Nom : </label> <input id="nomMenu" name="nom"
+						type="text" autofocus /><br /> <label for="Description">Description
+						: </label> <input id="descriptionAdd" name="description" type="text" /><br />
+					<label for="pays">Type : </label> <select name="type" id="type">
+						<option value="assiette">Assiette</option>
+						<option value="aEmporter">A emporter</option>
+						<option value="sandwich">Sandwich</option>
+						<option value="accompagnement">Accompagnement</option>
+						<option value="boisson">Boisson</option>
+						<option value="salade">Salade</option>
+						<option value="dessert">Dessert</option>
+					</select> <br /> <label for="prix">Prix : </label> <input id="prix"
+						name="prix" type="number" /> €<br /> <br /> <br /> <input
+						id="addMenu" type="button" value="Valider" /> <input type="reset"
+						value="Annuler" />
+				</fieldset>
+			</form>
+		</div>
 
-			<br />
+		<div id="page-supp">
+			<form method="post">
+				<fieldset>
+					<legend>Supprimer Produit/Menu</legend>
+					<label for="nom">Nom : </label> <select name="type"
+						id="selecteurSuppMenu">
+					</select> <br /> <br /> <br /> <input id="suppMenu" type="button"
+						value="Supprimer" />
+				</fieldset>
+			</form>
+		</div>
 
-			<h3>Mentions légales</h3>
+	</div>
 
-			<p style="text-align: justify; padding: 5px;">Lorem ipsum dolor
-				sit amet, consectetur adipiscing elit. Aenean dapibus, enim non
-				ullamcorper dictum, dolor nisl pharetra nisl, nec semper massa elit
-				id mauris. Maecenas cursus nisl sit amet vehicula mattis. In iaculis
-				tortor eros, a efficitur turpis imperdiet ut. Aliquam eget euismod
-				ex. Sed in neque ut orci lacinia porttitor. Nam consequat, urna ut
-				convallis vulputate, massa nisi tristique ligula, ac posuere sapien
-				felis vel leo. Donec bibendum metus lacus, vel fringilla nisl finibus
-				a. Etiam luctus est vitae mi cursus, ac pulvinar est luctus.
-				Pellentesque placerat pellentesque dolor, non molestie nulla rhoncus
-				sit amet. Donec elementum sed mauris sed laoreet. Maecenas nulla
-				tellus, tristique a ante vel, blandit cursus tellus. Nulla dignissim
-				nisl eu condimentum convallis. Vestibulum ante ipsum primis in
-				faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse
-				sagittis at lacus non ultrices. Duis consequat sapien non lorem
-				euismod consectetur. Integer imperdiet sed tortor at egestas.</p>
-				<p style="text-align: justify; padding: 5px;">Pellentesque ut
-					libero a mi lobortis sagittis non non augue. Pellentesque velit ex,
-					vestibulum ac felis id, fermentum tempus velit. Sed auctor, urna ac
-					tincidunt tempor, justo tellus gravida enim, eget lacinia leo mi
-					vitae sapien. Vestibulum ante ipsum primis in faucibus orci luctus et
-					ultrices posuere cubilia Curae; Donec consequat sed ligula ut auctor.
-					Fusce mattis justo at dignissim viverra. Vestibulum in pretium lorem,
-					vitae aliquet mauris. Pellentesque vestibulum urna nec ultrices
-					tempor. Proin in viverra nisl. Pellentesque tristique turpis vel
-					nulla cursus, vitae gravida ante porta. Vestibulum non convallis
-					erat, a cursus metus. Orci varius natoque penatibus et magnis dis
-					parturient montes, nascetur ridiculus mus.</p>
-					<p style="text-align: justify; padding: 5px;">Ut ultrices quam id
-						leo sollicitudin laoreet. Proin dapibus laoreet eros, sit amet
-						convallis nisi ultrices ut. Ut accumsan pharetra nunc, in mollis
-						turpis faucibus non. Aliquam diam arcu, aliquam nec nisi vel, commodo
-						dignissim orci. Integer id orci accumsan, aliquet mauris in, bibendum
-						metus. Ut finibus eros nulla, quis lobortis felis accumsan a. Aliquam
-						erat volutpat. Nullam vel felis ultrices, euismod augue eget,
-						lobortis velit. Donec porttitor ligula erat, eget efficitur orci
-						dictum ornare.</p>
+	<div id="page-panier"></div>
 
-						<br /> <br /> <br />
-					</div>
-
-					<div id="page-admin">
-
-						<p> Il y a <a href="http://www.mon-compteur.fr"><img src="http://www.mon-compteur.fr/html_c01genv2-198576-2" border="0" /></a> visites sur le site. </p>
-
-						<section>
-
-							<div id="menu-assiette"></div>
-							<div id="menu-emporter"></div>
-							<div id="menu-sandwich"></div>
-							<br /> 
-							<div id="menu-accompagnement"></div>
-							<div id="menu-boisson"></div>
-							<div id="menu-salade"></div>
-							<br />
-							<div id="menu-dessert"></div>
-						</section>
-
-						<div class="bas">
-							<input type="submit" value="Valider" /> <input type='button'
-							id="add" value='Ajouter Menu'
-							onClick='PopupCentrer("add.html",600,340,"menubar=no,scrollbars=no,statusbar=no")'>
-							<input type="submit" value="Modifier" /> <input type="reset"
-							value="Annuler" />
-						</div>
-
-					</div>
-					<div id="page-add">
-						<form method="post">
-							<fieldset>
-								<legend>Ajout Menu</legend>
-								<label for="nom">Nom : </label> <input id="nomMenu" name="nom"
-								type="text" autofocus /><br /> <label for="Description">Description
-								: </label> <input id="descriptionAdd" name="description" type="text" /><br />
-								<label for="pays">Type : </label> <select name="type" id="type">
-								<option value="assiette">Assiette</option>
-								<option value="aEmporter">A emporter</option>
-								<option value="sandwich">Sandwich</option>
-								<option value="accompagnement">Accompagnement</option>
-								<option value="boisson">Boisson</option>
-								<option value="salade">Salade</option>
-								<option value="dessert">Dessert</option>
-							</select> <br /> <label for="prix">Prix : </label> <input id="prix"
-							name="prix" type="number" /> €<br /> <br /> <br /> <input
-							id="addMenu" type="button" value="Valider" /> <input type="reset"
-							value="Annuler" />
-						</fieldset>
-					</form>
-				</div>
-
-				<div id="page-supp">  
-					<form method="post">
-						<fieldset>
-							<legend>Supprimer Produit/Menu</legend>
-							<label for="nom">Nom : </label>
-							<select name="type" id="selecteurSuppMenu">
-							</select>   <br />
-							<br /><br />
-
-							<input id="suppMenu" type="button" value="Supprimer"/> 
-						</fieldset>
-					</form>  
-				</div>
-
-
-				<div id="page-panier">
-
-				</div>
+	<div id="page-commandes">
+		<fieldset>
+			<legend>Commandes</legend>
+			<a id="precedent-commande">Précédent</a>
+			<a id="suivant-commande">Suivant</a>
+			<span id="commande-actuelle"></span>
+		</fieldset>
+	</div>
 
 
 
 
-				<footer>
-					<img
-					src="http://icons.iconarchive.com/icons/sonya/swarm/48/Kebab-icon.png"
-					alt="brochette" style="margin-right: 290px;" /> <a
-					id="mentions-legales">Voir les mentions légales </a> - &copy;
-					Ôbarbecue, 2017 <a href="#"><img
-					src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/48/social-facebook-box-blue-icon.png"
-					alt="facebook" /></a>
+	<footer>
+		<img
+			src="http://icons.iconarchive.com/icons/sonya/swarm/48/Kebab-icon.png"
+			alt="brochette" style="margin-right: 290px;" /> <a
+			id="mentions-legales">Voir les mentions légales </a> - &copy;
+		Ôbarbecue, 2017 <a href="#"><img
+			src="http://icons.iconarchive.com/icons/yootheme/social-bookmark/48/social-facebook-box-blue-icon.png"
+			alt="facebook" /></a>
 
-				</footer>
-			</BODY>
-			</html>
+	</footer>
+</BODY>
+</html>
 

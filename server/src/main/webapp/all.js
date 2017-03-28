@@ -44,17 +44,24 @@ function getSecure(url) {
 	               $("#page-connexion").hide();
 	               $("#page-inscription").hide();
 	               $("#page-mentions-legales").hide();
+	               $("#page-panier").show();
+				   $("#page-supp").hide();
+				   $("#page-commandes").hide();
 	               listProduitsBdd();
 	    		   //Afficher trucs pour user et cacher le reste
 	    	   } else if (data.role == "admin") {
+	    		   $("#commandes").show();
 	    		   $("#page-accueil").hide();
 	               $("#page-menu").hide();
 	               $("#page-contact").hide();
-	               $("#page-admin").show();
+	               $("#page-admin").hide();
 	               $("#page-add").hide();
 	               $("#page-connexion").hide();
 	               $("#page-inscription").hide();
 	               $("#page-mentions-legales").hide();
+	               $("#page-panier").hide();
+				   $("#page-supp").hide();
+				   $("#page-commandes").show();
 	    		 //Afficher trucs pour admin et cacher le reste
 	    	   }
 	        afficheUser(data);
