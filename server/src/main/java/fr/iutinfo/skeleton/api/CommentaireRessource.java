@@ -46,27 +46,10 @@ public class CommentaireRessource {
         return dto;
     }
     
-    @POST
-    public CommentaireDTO setCommentaireValide(CommentaireDTO dto ,@PathParam("contenu") String contenu, @PathParam("mail") String mail ) {
-    	Commentaire com = new Commentaire();
-    	dao.valideCommentaire(contenu, mail);
-        return dto;
-    }
-    
     @GET
     @Path("/{name}")
     public List<CommentaireDTO> getCommentaire(@PathParam("contenu") String contenu) {
     	List<Commentaire> com = dao.findByContenu(contenu);
-        if (com == null) {
-            throw new WebApplicationException(404);
-        }
-        return com.stream().map(Commentaire::convertToDto).collect(Collectors.toList());
-    }
-    
-    
-    @GET
-    public List<CommentaireDTO> getAllValide() {
-    	List<Commentaire> com = dao.allValide();
         if (com == null) {
             throw new WebApplicationException(404);
         }

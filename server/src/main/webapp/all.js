@@ -17,68 +17,68 @@ function getByAnnotation() {
 }
 
 function getSecure(url) {
-	 if($("#pseudo").val() != "") {
-		 console.log("#pseudo n'était pas vide");
-	     $.ajax
-	     ({
-	       type: "GET",
-	       url: url,
-	       dataType: 'json',
-	       beforeSend : function(req) {
-	        req.setRequestHeader("Authorization", "Basic " + btoa($("#pseudo").val() + ":" + $("#password").val()));
-	       },
-	       success: function (data) {
-	    	   console.log("success : function");
-	    	   console.log(data);
-	    	   $("#connexion").hide();
-	    	   $("#inscription").hide();
-	    	   $("#deconnexion").show();
-    		   alert("Bonjour " + data.nom + " " + data.prenom);
-	    	   if (data.role =="user") {
-	    		   $("#panier").show();
-	    		   $("#page-accueil").hide();
-	               $("#page-menu").show();
-	               $("#page-contact").hide();
-	               $("#page-admin").hide();
-	               $("#page-add").hide();
-	               $("#page-connexion").hide();
-	               $("#page-inscription").hide();
-	               $("#page-mentions-legales").hide();
-	               $("#page-panier").show();
-				   $("#page-supp").hide();
-				   $("#page-commandes").hide();
-	               listProduitsBdd();
+	if($("#pseudo").val() != "") {
+		console.log("#pseudo n'était pas vide");
+		$.ajax
+		({
+			type: "GET",
+			url: url,
+			dataType: 'json',
+			beforeSend : function(req) {
+				req.setRequestHeader("Authorization", "Basic " + btoa($("#pseudo").val() + ":" + $("#password").val()));
+			},
+			success: function (data) {
+				console.log("success : function");
+				console.log(data);
+				$("#connexion").hide();
+				$("#inscription").hide();
+				$("#deconnexion").show();
+				alert("Bonjour " + data.nom + " " + data.prenom);
+				if (data.role =="user") {
+					$("#panier").show();
+					$("#page-accueil").hide();
+					$("#page-menu").show();
+					$("#page-contact").hide();
+					$("#page-admin").hide();
+					$("#page-add").hide();
+					$("#page-connexion").hide();
+					$("#page-inscription").hide();
+					$("#page-mentions-legales").hide();
+					$("#page-panier").show();
+					$("#page-supp").hide();
+					$("#page-commandes").hide();
+					listProduitsBdd();
 	    		   //Afficher trucs pour user et cacher le reste
-	    	   } else if (data.role == "admin") {
-	    		   $("#commandes").show();
-	    		   $("#page-accueil").hide();
-	               $("#page-menu").hide();
-	               $("#page-contact").hide();
-	               $("#page-admin").hide();
-	               $("#page-add").hide();
-	               $("#page-connexion").hide();
-	               $("#page-inscription").hide();
-	               $("#page-mentions-legales").hide();
-	               $("#page-panier").hide();
-				   $("#page-supp").hide();
-				   $("#page-commandes").show();
+	    		} else if (data.role == "admin") {
+	    			$("#commandes").show();
+	    			$("#page-accueil").hide();
+	    			$("#page-menu").hide();
+	    			$("#page-contact").hide();
+	    			$("#page-admin").hide();
+	    			$("#page-add").hide();
+	    			$("#page-connexion").hide();
+	    			$("#page-inscription").hide();
+	    			$("#page-mentions-legales").hide();
+	    			$("#page-panier").hide();
+	    			$("#page-supp").hide();
+	    			$("#page-commandes").show();
 	    		 //Afficher trucs pour admin et cacher le reste
-	    	   }
-	        afficheUser(data);
-	       },
-	       error : function(jqXHR, textStatus, errorThrown) {
-	       			alert('error: ' + textStatus);
-	       		}
-	     });
-	     } else {
-	     $.getJSON(url, function(data) {
-	     	    afficheUser(data);
-	        });
-	     }
-	 }
+	    		}
+	    		afficheUser(data);
+	    	},
+	    	error : function(jqXHR, textStatus, errorThrown) {
+	    		alert('error: ' + textStatus);
+	    	}
+	    });
+} else {
+	$.getJSON(url, function(data) {
+		afficheUser(data);
+	});
+}
+}
 
 function postUserBdd(nom, prenom, mail, role, pwd, adresse, num) {
-    postUserGeneric(nom, prenom, mail, role, pwd, adresse, num, 0, "v1/user/");
+	postUserGeneric(nom, prenom, mail, role, pwd, adresse, num, 0, "v1/user/");
 }
 
 function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, url) {
@@ -101,14 +101,14 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 		success : function(data, textStatus, jqXHR) {
 			alert("Vous êtes enregistré.");
 			$("#page-accueil").show();
-	        $("#page-menu").hide();
-	        $("#page-contact").hide();
-	        $("#page-admin").hide();
-	        $("#page-add").hide();
-	        $("#page-connexion").hide();
-	        $("#page-inscription").hide();
-	        $("#page-mentions-legales").hide();
-	        $("#panier").hide();
+			$("#page-menu").hide();
+			$("#page-contact").hide();
+			$("#page-admin").hide();
+			$("#page-add").hide();
+			$("#page-connexion").hide();
+			$("#page-inscription").hide();
+			$("#page-mentions-legales").hide();
+			$("#panier").hide();
 			afficheUser(data);
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
@@ -119,7 +119,7 @@ function postUserGeneric(nom, prenom, mail, role, pwd, adresse, numTel, nbrCmd, 
 }
 
 function postProduitBdd(nom, desc, prix, img, type) {
-    postProduitGeneric(nom, desc, img, prix, type, "v1/produit/");
+	postProduitGeneric(nom, desc, img, prix, type, "v1/produit/");
 }
 
 function postProduitGeneric(nom, desc, img, prix, type, url) {
@@ -151,11 +151,11 @@ function afficheProduit(data) {
 }
 
 function listUsersBdd() {
-    listUsersGeneric("v1/user/");
+	listUsersGeneric("v1/user/");
 }
 
 function listProduitsBdd() {
-    listProduitsGeneric("v1/produit/");
+	listProduitsGeneric("v1/produit/");
 }
 
 function listUsersGeneric(url) {
@@ -246,7 +246,7 @@ function afficherPanier(data){
 }
 
 function listProduitsBddMenuDeroulant() {
-    listProduitsGenericMenuDeroulant("v1/produit/");
+	listProduitsGenericMenuDeroulant("v1/produit/");
 }
 
 function listProduitsGenericMenuDeroulant(url) {
@@ -268,7 +268,7 @@ function afficheListProduitsMenuDeroulant(data) {
 }
 
 function deleteProduitBdd(nom) {
-    deleteProduitGeneric("v1/produit/"+nom);
+	deleteProduitGeneric("v1/produit/"+nom);
 }
 
 function deleteProduitGeneric(url) {
@@ -285,11 +285,11 @@ function deleteProduitGeneric(url) {
 	});
 }
 
-function getCommentaire(mail, com, url) {
-	getCommentaireGeneric(mail, com, "v1/Commentaire");
+function postCommentaire(mail, com, note) {
+	postCommentaireGeneric(mail, com, note, "v1/Commentaire");
 }
 
-function getCommentaireGeneric(mail, com, url) {
+function postCommentaireGeneric(mail, com, note, url) {
 	var aujd = new Date();
 	$.ajax({
 		type : 'POST',
@@ -298,17 +298,38 @@ function getCommentaireGeneric(mail, com, url) {
 		dataType : "json",
 		data : JSON.stringify({
 			"contenu" : com,
-			"date" : aujd.getDate().toString() + "/" + parseInt(aujd.getMonth()+1).toString() + "/" + aujd.getFullYear().toString(),
+			"dat" : aujd.getDate().toString() + "/" + parseInt(aujd.getMonth()+1).toString() + "/" + aujd.getFullYear().toString(),
 			"mail" : mail,
-			"valide" : 0,
-			"note" : 0
+			"valide" : 1,
+			"note" : parseInt(note)
 		}),
 		success : function(data, textStatus, jqXHR) {
-			alert("yo");
-			//afficheProduit(data);
+			alert("Commentaire envoyé");
 		},
 		error : function(jqXHR, textStatus, errorThrown) {
 			console.log('postCom error: ' + textStatus);
 		}
 	});
+}
+
+function listCommentaire() {
+	listCommentaireGeneric("v1/Commentaire/");
+}
+
+function listCommentaireGeneric(url) {
+	$.getJSON(url, function(data) {
+		afficheListCommentaire(data)
+	});
+}
+
+function afficheListCommentaire(data) {
+	var selecteur = $('#affCom');
+
+	var test;
+
+	for(var i = 0 ; i < data.length ; i++){
+		test+="<fieldset><p> Identifiant : "+ data[i].mail +" - Note : " + data[i].prix + "</p><br/><p>" + data[i].contenu + "</p></fieldset>";
+	}
+	
+	selecteur.append(test);
 }

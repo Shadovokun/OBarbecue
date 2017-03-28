@@ -79,20 +79,21 @@ public class Commentaire {
 
     public void initFromDto(CommentaireDTO dto) {
         this.setContenu(dto.getContenu());
+		this.setDat(dto.getDat());
         this.setMail(dto.getMail());
+		this.setValide(dto.getValide());
         this.setNote(dto.getNote());
-        this.setDat(dto.getDat());
-        this.setValide(dto.getValide());
     }
 
     public CommentaireDTO convertToDto() {
         CommentaireDTO dto = new CommentaireDTO();
        
         dto.setContenu(this.getContenu());
+		dto.setDat(this.getDat());
         dto.setMail(this.getMail());
+		dto.setValide(this.valide);
         dto.setNote(this.getNote());
-        dto.setDat(this.getDat());
-        dto.setValide(this.valide);
+        
         return dto;
     }
 }

@@ -63,9 +63,11 @@ public class ProduitsRessource {
     }
     
     @DELETE
-    @Path("/{id}")
+    @Path("/{nom}")
     public void deleteProduit(@PathParam("nom") String nom) {
-        dao.deleteProduits(nom);
+		logger.debug("delete produit: " + nom);
+	    dao.deleteProduits(nom);
+		logger.debug("Rechercher : "  + dao.search("%"+nom+"%").size());
     }
 
 }

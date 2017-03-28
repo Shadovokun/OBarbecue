@@ -70,6 +70,7 @@
 							$("#page-mentions-legales").hide();
 							$("#page-supp").hide();
 							$("#page-commandes").hide();
+							listCommentaire();
 						});
 
 						$("#connexion").click(function() {
@@ -215,20 +216,14 @@
 						$("#suppMenu")
 								.click(
 										function() {
-											deleteProduitBdd($(
-													'#selecteurSuppMenu option:selected')
-													.val());
+											deleteProduitBdd($(#selecteurSuppMenu option:selected).val());
 											//alert($('#selecteurSuppMenu option:selected').val());
-											$("#suppMenu").addEventListener(
-													'click', location.reload(),
-													false);
+											$("#suppMenu").addEventListener('click', location.reload(),false);
 										})
 
 						$("#envoyCom").click(
 								function() {
-									//alert($("#mailCom").val() + $("#areaCom").val());
-									getCommentaire($("#mailCom").val(), $(
-											"#areaCom").val());
+									postCommentaire($("#mailCom").val(), $("#areaCom").val(), $("#noteCom option:selected").val());
 								})
 
 						$("#envoyer-connexion").click(function() {
@@ -408,16 +403,30 @@
 
 
 
-		<form method="get" action="Accueil.html">
+		<form>
 			<fieldset>
 				<legend>Laissez nous votre avis</legend>
-				<label for="mail">Votre adresse mail :</label> <input type="text"
-					name="pseudal" value="" autofocus /><br /> <label for="com">Votre
-					commentaire :</label><br />
-				<textarea name="commentaire" rows="10" cols="40"></textarea>
-				<br /> <br /> <input type="submit" value="Envoyer" />
+				<label for="mail">Votre adresse mail :</label> 
+				<input id="mailCom" type="text" name="pseudal" value="" autofocus /><br /> 
+				<label>Note :</label> 
+				<select id="noteCom">
+						<option>0</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+				</select> <br />
+
+				<label for="com">Votre commentaire :</label><br />
+				<textarea id="areaCom" name="commentaire" rows="10" cols="40"></textarea>
+				<br /> <br /> <input id="envoyCom" type="button" value="Envoyer" />
 			</fieldset>
 		</form>
+
+		<div id="affCom">
+
+		</div>
 
 
 		<div id="map"></div>
