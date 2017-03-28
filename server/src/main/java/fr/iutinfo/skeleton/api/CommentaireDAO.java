@@ -20,7 +20,7 @@ public interface CommentaireDAO {
 	 int insertCommentaire(@BindBean() Commentaire com);
 	 
 	 @SqlQuery("select * from Commentaire")
-	  @RegisterMapperFactory(BeanMapperFactory.class)
+	 @RegisterMapperFactory(BeanMapperFactory.class)
 	  List<Commentaire> findByAll();
 	 
 	 @SqlUpdate("drop table if exists Commentaire")
@@ -34,9 +34,12 @@ public interface CommentaireDAO {
 	 @RegisterMapperFactory(BeanMapperFactory.class)
 	 List<Commentaire> findByContenu(@Bind("contenu") String contenu);
 	 
-	 @SqlQuery("select * from Commentaire where valide = :valide")
+	 @SqlQuery("select * from Commentaire where valide = 1")
 	 @RegisterMapperFactory(BeanMapperFactory.class)
-	 List<Commentaire> allValide(@Bind("valide") int valide);
+	 List<Commentaire> allValide();
+	 
+	 @SqlUpdate("Update Commentaire set valide = 1 , where contenu = :contenue and mail = :mail ")
+	 void valideCommentaire(@Bind("contenu") String contenu,@Bind("mail") String mail);
 
 	 void close();
 }
