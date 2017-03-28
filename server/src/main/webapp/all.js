@@ -1,3 +1,12 @@
+var listeProduits = new Array(); 
+var somme = 0;
+var prix = 0;
+
+function viderListeProduits() {
+	listeProduits = new Array();
+}
+
+
 function getUserBdd(name) {
 	getUserGeneric(name, "v1/user/");
 }
@@ -7,6 +16,24 @@ function getUserGeneric(name, url) {
 		afficheUser(data);
 	});
 }
+
+
+function getProduitBdd(name) {
+	getProduitGeneric(name, "v1/produit/");
+}
+
+function getProduitGeneric(name, url) {
+	$.getJSON(url + name, function(data) {
+		afficherPrixProduit(data);
+	});
+}
+
+function afficherPrixProduit(data) {
+	somme= somme + data.prix;
+	prix = data.prix;
+}
+
+
 
 function getForAll() {
 	getSecure("v1/secure/who");
@@ -186,6 +213,17 @@ function afficheListUsers(data) {
 }
 
 
+function ajouterPrix(produit){
+	getProduitBdd(produit);
+}
+
+
+function ajouterProduit(produit){
+	prix = ajouterPrix(produit);
+	listeProduits.push(produit);
+}
+
+
 function afficheListProduits(data) {
 	$('#menu-assiette').empty();
 	$('#menu-emporter').empty();
@@ -205,19 +243,19 @@ function afficheListProduits(data) {
 	
 	for(var i = 0 ; i < data.length ; i++){
 		if(data[i].type === "assiette"){
-			assiette+= "<div class=\"titre-menu\">" + data[i].nom + "</div> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			assiette+= "<div id=" + data[i].nom +" class=\"titre-menu ajoutable\">" + data[i].nom + "</div> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "aEmporter"){
-			aEmporter+= "<h4>" + data[i].nom + "</h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			aEmporter+= "<div id=" + data[i].nom +" class=\"titre-menu ajoutable\">" + data[i].nom + "</div> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "sandwich"){
-			sandwich+= "<h4> Sandwich </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			sandwich+= "<div id=" + data[i].nom +" class=\"titre-menu ajoutable\"> Sandwich </div> <div class=\"prix \">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "accompagnement"){
 			accompagnement+= "<p>" + data[i].nom + "</p>" ;
 		} if(data[i].type === "boisson"){
-			boisson+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
+			boisson+= "<p id=" + data[i].nom +" class=\"ajoutable petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
 		} if(data[i].type === "salade"){
-			salade+= "<h4> Salade </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
+			salade+= "<h4 id=" + data[i].nom +" class=\"ajoutable\"> Salade </h4> <div class=\"prix\">" + data[i].prix + "</div> <p>" + data[i].description + "</p>" ;
 		} if(data[i].type === "dessert"){
-			dessert+= "<p class=\"petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
+			dessert+= "<p id=" + data[i].nom +" class=\"ajoutable petit-nom\">" + data[i].nom + " </p> <p class=\"petit-prix\"> " + data[i].prix + "</p>" ;
 		}
 	}
 	
@@ -229,21 +267,30 @@ function afficheListProduits(data) {
 	$('#menu-boisson').append(boisson);
 	$('#menu-salade').append(salade);
 	$('#menu-dessert').append(dessert);
+	
+	$('.ajoutable').click(function(event) {
+		alert("Produit ajouté au panier.");
+		ajouterProduit(event.target.id);
+		
+	});
+	
 }
-
-var listeProduits = new Array(); 
-var somme = 0;
-
-/*function ajouterProduit(var produit, var prix){
-	somme+= prix;
-	listeProduits.push(produit);
-	alert("ok");
-}*/
 
 function afficherPanier(data){
+	var pan = "";
+	if(listeProduits.length == 0){
+		$('#page-panier').html("Votre panier est vide");
+	}	else {
+		for(var i = 0; i < listeProduits.length ; i++){
+			pan+= "<div>" + listeProduits[i].toString() + "</div>";
+		}
+	}
 	
-	$('#page-panier').html("Votre panier est vide");
+	pan += "<div id=\"total\"> TOTAL : " + somme + "</div>";
+	
+	$('#page-panier').html(pan);
 }
+
 
 function listProduitsBddMenuDeroulant() {
 	listProduitsGenericMenuDeroulant("v1/produit/");

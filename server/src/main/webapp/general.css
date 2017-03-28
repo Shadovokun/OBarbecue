@@ -277,6 +277,16 @@ ul{
 	text-align:right;
 }
 
+#total{
+	font-weight:bold;
+	font-size:22px;
+	color:#803315;
+}
+
+#total:after{
+	content:'€';
+}
+
 /****FIN MENUS****/
 /****DEBUT SLIDESHOW****/
 #slideshow {
